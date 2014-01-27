@@ -13,9 +13,13 @@ namespace PirateWars
         [STAThread]
         static void Main()
         {
+            
+            DataAccessLayer dal = new DataAccessLayer();
+            Game game = new Game();
+            Controller controller = new Controller(ref dal, ref game);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form1(ref controller));
         }
     }
 }

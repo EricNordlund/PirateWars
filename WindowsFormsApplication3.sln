@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication3", "WindowsFormsApplication3\WindowsFormsApplication3.csproj", "{947720DC-60E0-458B-AE7B-7A0E434525D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateWars", "WindowsFormsApplication3\PirateWars.csproj", "{947720DC-60E0-458B-AE7B-7A0E434525D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

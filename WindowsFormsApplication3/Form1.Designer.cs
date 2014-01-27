@@ -38,7 +38,7 @@
             this.port5 = new System.Windows.Forms.Button();
             this.port6 = new System.Windows.Forms.Button();
             this.playerName = new System.Windows.Forms.Label();
-            this.cash = new System.Windows.Forms.Label();
+            this.playerGold = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
             this.inventoryItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +50,8 @@
             this.portQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTravel = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
+            this.lblPlayerInventory = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPort)).BeginInit();
@@ -147,15 +149,15 @@
             this.playerName.Text = "-";
             this.playerName.Click += new System.EventHandler(this.label1_Click);
             // 
-            // cash
+            // playerGold
             // 
-            this.cash.AutoSize = true;
-            this.cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cash.Location = new System.Drawing.Point(36, 70);
-            this.cash.Name = "cash";
-            this.cash.Size = new System.Drawing.Size(48, 20);
-            this.cash.TabIndex = 11;
-            this.cash.Text = "Cash";
+            this.playerGold.AutoSize = true;
+            this.playerGold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerGold.Location = new System.Drawing.Point(36, 70);
+            this.playerGold.Name = "playerGold";
+            this.playerGold.Size = new System.Drawing.Size(48, 20);
+            this.playerGold.TabIndex = 11;
+            this.playerGold.Text = "Cash";
             // 
             // pictureBox1
             // 
@@ -259,17 +261,37 @@
             this.lblPoints.TabIndex = 15;
             this.lblPoints.Text = "Points";
             // 
+            // lblPlayerInventory
+            // 
+            this.lblPlayerInventory.AutoSize = true;
+            this.lblPlayerInventory.Location = new System.Drawing.Point(25, 236);
+            this.lblPlayerInventory.Name = "lblPlayerInventory";
+            this.lblPlayerInventory.Size = new System.Drawing.Size(60, 13);
+            this.lblPlayerInventory.TabIndex = 16;
+            this.lblPlayerInventory.Text = "Your Cargo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(391, 238);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Port\'s Trading Goods";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 503);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.lblPoints);
             this.Controls.Add(this.lblTravel);
             this.Controls.Add(this.dataGridViewPort);
             this.Controls.Add(this.dataGridViewInventory);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cash);
+            this.Controls.Add(this.playerGold);
             this.Controls.Add(this.playerName);
             this.Controls.Add(this.port6);
             this.Controls.Add(this.port5);
@@ -301,7 +323,7 @@
         private System.Windows.Forms.Button port5;
         private System.Windows.Forms.Button port6;
         private System.Windows.Forms.Label playerName;
-        private System.Windows.Forms.Label cash;
+        private System.Windows.Forms.Label playerGold;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridViewInventory;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryItem;
@@ -313,6 +335,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn portQuantity;
         private System.Windows.Forms.Label lblTravel;
         private System.Windows.Forms.Label lblPoints;
+        private System.Windows.Forms.Label lblPlayerInventory;
+        private System.Windows.Forms.Label label1;
     }
 }
 

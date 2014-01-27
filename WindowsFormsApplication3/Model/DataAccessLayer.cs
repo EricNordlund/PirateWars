@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PirateWars
 {
-    class Controller
+    class DataAccessLayer
     {
     }
 }

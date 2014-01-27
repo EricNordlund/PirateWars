@@ -10,32 +10,32 @@ using Microsoft.VisualBasic;
 
 namespace PirateWars
 {
-    public partial class Form1 : Form
+    partial class Form1 : Form
     {
-
-        public string pirateName { get; set; }
-
-        public Form1()
+        
+        string pirateName;
+        Controller controller;
+        
+        
+        public Form1(ref Controller controller)
         {
             InitializeComponent();
-            
+            this.controller = controller;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            while (this.playerName.Text == "-")
+            while (playerName.Text == "" || playerName.Text == "-")
             {
                 pirateName = Microsoft.VisualBasic.Interaction.InputBox("Enter your name, Captain!", "Player setup", "");
-                Player player = new Player(pirateName);
-                
-                this.playerName.Text = pirateName;
-                this.cash.Text = player.gold + " Golden Coins";
+                controller.SetPlayerName(pirateName);
 
-
+                playerName.Text = pirateName;
                 
             }
+            this.playerGold.Text = controller.GetPlayerStartingGold() +" Golden Coins";
         }
-
+        
         private void label1_Click(object sender, EventArgs e)
         {
 

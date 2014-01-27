@@ -7,13 +7,30 @@ namespace PirateWars
 {
     class Game
     {
-        Port tartuga = new Port("tartuga");
-        Port blackwater = new Port("Black Water Bay");
-        Port providence = new Port("Providence");
-        Port shipwreck = new Port("Shipwreck Cove");
-        Port freePort = new Port("Free Port");
-        Port islaDeMuerta = new Port("Isla de Muerta");
 
+        Player player;
+        public void InitializePots()
+        {
+            Port tartuga = new Port("tartuga");
+            Port blackwater = new Port("Black Water Bay");
+            Port providence = new Port("Providence");
+            Port shipwreck = new Port("Shipwreck Cove");
+            Port freePort = new Port("Free Port");
+            Port islaDeMuerta = new Port("Isla de Muerta");
+        }
+
+        public Player GetPlayer()
+        {
+            return player;
+        }
+
+
+
+        public void SetPlayerName(string pirateName)
+        {
+            player = new Player(pirateName);
+        }
         
     }
 }
+
