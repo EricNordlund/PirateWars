@@ -34,6 +34,15 @@ namespace PirateWars
                 
             }
             this.playerGold.Text = controller.GetPlayerStartingGold() +" Golden Coins";
+
+            
+
+            foreach (Cargo cargo in controller.GetCargoList())
+            {
+                dataGridViewInventory.Rows.Add(cargo.name, cargo.amount);
+            }
+
+
         }
         
         private void label1_Click(object sender, EventArgs e)
@@ -86,14 +95,29 @@ namespace PirateWars
 
         }
 
+        //purchase
         private void button6_Click(object sender, EventArgs e)
         {
-
+            
+            
         }
 
+        //sell
         private void button5_Click(object sender, EventArgs e)
         {
+            
+            
+            String temp = dataGridViewInventory.CurrentCell.OwningRow.Cells[0].Value as string; 
 
+            foreach (Cargo cargo in controller.GetCargoList())
+            {
+                if (cargo.name == temp)
+                {
+                    controller.GetGame().GetPlayer().DecreaseAmount(cargo);
+                    Console.WriteLine(controller.GetGame().GetPlayer().GetCargoList().);
+                }
+            }
+            
         }
     }
 }

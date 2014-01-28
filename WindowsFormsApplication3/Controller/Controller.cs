@@ -8,8 +8,6 @@ namespace PirateWars
 {
     class Controller
     {
-        
-        string pirateName;
         DataAccessLayer dal;
         Game game;
 
@@ -18,8 +16,12 @@ namespace PirateWars
             this.dal = dal;
             this.game = game;
         }
-        
-        
+
+
+        public Game GetGame()
+        {
+            return game;
+        }
 
         public void SetPlayerName(string pirateName)
         {
@@ -30,5 +32,12 @@ namespace PirateWars
         {
             return game.GetPlayer().gold;
         }
+
+        public List<Cargo> GetCargoList()
+        {
+            return game.GetPlayer().GetCargoList();
+        }
+
+
     }
 }

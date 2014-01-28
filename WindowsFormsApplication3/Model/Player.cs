@@ -16,6 +16,8 @@ namespace PirateWars
         Cargo gunpowder = new Cargo("Gunpowder");
         Cargo pearl = new Cargo("Pearl");
 
+        List<Cargo> cargoList = new List<Cargo>();
+
         public string playerName { get; set; }
         public int gold { get; set; }
 
@@ -23,32 +25,13 @@ namespace PirateWars
         {
             this.playerName = name;
             this.gold = 100;
-            bullet.amount = 0;
-            rum.amount = 0;
-            tobacco.amount = 0;
+            bullet.amount = 2;
+            rum.amount = 2;
+            tobacco.amount = 2;
             spices.amount = 0;
             cloth.amount = 0;
             gunpowder.amount = 0;
             pearl.amount = 0;
-        }
-
-        public void testRun()
-        {
-            bullet.amount = 1;
-            rum.amount = 1;
-            tobacco.amount = 1;
-            spices.amount = 1;
-            cloth.amount = 1;
-            gunpowder.amount = 1;
-            pearl.amount = 1;
-
-        }
-
-        public List<Cargo> getCargoList()
-        {
-            List<Cargo> cargoList = new List<Cargo>();
-           
-
             cargoList.Add(bullet);
             cargoList.Add(rum);
             cargoList.Add(tobacco);
@@ -56,7 +39,17 @@ namespace PirateWars
             cargoList.Add(cloth);
             cargoList.Add(gunpowder);
             cargoList.Add(pearl);
-            return cargoList;
+
+        }
+
+        public List<Cargo> GetCargoList()
+        {
+           return cargoList;
+        }
+
+        public void DecreaseAmount(Cargo item)
+        {
+            item.amount -= 1;
         }
 
     }
