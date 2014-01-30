@@ -25,12 +25,12 @@ namespace PirateWars
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            while (playerName.Text == "" || playerName.Text == "-")
+            while (lblPlayerName.Text == "" || lblPlayerName.Text == "-")
             {
                 pirateName = Microsoft.VisualBasic.Interaction.InputBox("Enter your name, Captain!", "Player setup", "");
                 controller.SetPlayerName(pirateName);
 
-                playerName.Text = pirateName;
+                lblPlayerName.Text = pirateName;
                 
             }
             this.playerGold.Text = controller.GetPlayerStartingGold() +" Golden Coins";
@@ -47,7 +47,7 @@ namespace PirateWars
         
         private void label1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void inventory_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace PirateWars
 
         private void port1_Click(object sender, EventArgs e)
         {
-
+            lblPlayerName.Text = "Welcome " + pirateName + ", to Tortuga.";
         }
 
         private void port2_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace PirateWars
                 if (cargo.name == temp)
                 {
                     controller.GetGame().GetPlayer().DecreaseAmount(cargo);
-                    Console.WriteLine(controller.GetGame().GetPlayer().GetCargoList().);
+                    //Console.WriteLine(controller.GetGame().GetPlayer().GetCargoList().);
                 }
             }
             

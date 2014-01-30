@@ -38,7 +38,7 @@
             this.btnPurchase = new System.Windows.Forms.Button();
             this.port5 = new System.Windows.Forms.Button();
             this.port6 = new System.Windows.Forms.Button();
-            this.playerName = new System.Windows.Forms.Label();
+            this.lblPlayerName = new System.Windows.Forms.Label();
             this.playerGold = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
@@ -61,7 +61,7 @@
             // 
             // port1
             // 
-            this.port1.Location = new System.Drawing.Point(392, 83);
+            this.port1.Location = new System.Drawing.Point(394, 83);
             this.port1.Name = "port1";
             this.port1.Size = new System.Drawing.Size(99, 38);
             this.port1.TabIndex = 0;
@@ -142,14 +142,14 @@
             // 
             // playerName
             // 
-            this.playerName.AutoSize = true;
-            this.playerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerName.Location = new System.Drawing.Point(22, 25);
-            this.playerName.Name = "playerName";
-            this.playerName.Size = new System.Drawing.Size(19, 25);
-            this.playerName.TabIndex = 10;
-            this.playerName.Text = "-";
-            this.playerName.Click += new System.EventHandler(this.label1_Click);
+            this.lblPlayerName.AutoSize = true;
+            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerName.Location = new System.Drawing.Point(22, 25);
+            this.lblPlayerName.Name = "playerName";
+            this.lblPlayerName.Size = new System.Drawing.Size(19, 25);
+            this.lblPlayerName.TabIndex = 10;
+            this.lblPlayerName.Text = "-";
+            this.lblPlayerName.Click += new System.EventHandler(this.label1_Click);
             // 
             // playerGold
             // 
@@ -164,7 +164,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(200, 39);
+            this.pictureBox1.Location = new System.Drawing.Point(598, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(54, 51);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -249,7 +249,7 @@
             // 
             this.lblTravel.AutoSize = true;
             this.lblTravel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTravel.Location = new System.Drawing.Point(461, 40);
+            this.lblTravel.Location = new System.Drawing.Point(461, 25);
             this.lblTravel.Name = "lblTravel";
             this.lblTravel.Size = new System.Drawing.Size(78, 25);
             this.lblTravel.TabIndex = 14;
@@ -296,7 +296,7 @@
             this.Controls.Add(this.dataGridViewInventory);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.playerGold);
-            this.Controls.Add(this.playerName);
+            this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.port6);
             this.Controls.Add(this.port5);
             this.Controls.Add(this.btnPurchase);
@@ -327,7 +327,7 @@
         private System.Windows.Forms.Button btnPurchase;
         private System.Windows.Forms.Button port5;
         private System.Windows.Forms.Button port6;
-        private System.Windows.Forms.Label playerName;
+        private System.Windows.Forms.Label lblPlayerName;
         private System.Windows.Forms.Label playerGold;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridViewInventory;

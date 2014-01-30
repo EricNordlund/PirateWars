@@ -16,3 +16,11 @@
 \\student.local\Files\Home\sys12jli\Desktop\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\PirateWars.Properties.Resources.resources
 \\student.local\Files\Home\sys12jli\Desktop\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\GenerateResource.read.1.tlog
 \\student.local\Files\Home\sys12jli\Desktop\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Lindgren\Documents\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\WindowsFormsApplication3.exe
+C:\Users\Lindgren\Documents\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\WindowsFormsApplication3.pdb
+C:\Users\Lindgren\Documents\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\PirateWars.csprojResolveAssemblyReference.cache
+C:\Users\Lindgren\Documents\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\PirateWars.Form1.resources
+C:\Users\Lindgren\Documents\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\PirateWars.Properties.Resources.resources
+C:\Users\Lindgren\Documents\GitHub\PirateWars\WindowsFormsApplication3\obj\x86\Debug\PirateWars.csproj.GenerateResource.Cache
+C:\Users\Lindgren\Documents\GitHub\PirateWars\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
+C:\Users\Lindgren\Documents\GitHub\PirateWars\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
