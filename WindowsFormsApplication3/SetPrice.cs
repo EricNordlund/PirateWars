@@ -34,6 +34,13 @@ namespace PirateWars
             }
             return returnPrice;
 
+        
+
+        }
+
+        public int initialPrice(String cargoName) //Inte klar! :D
+        {
+            return 10;
         }
 
     }
