@@ -52,5 +52,11 @@ namespace PirateWars
             item.amount -= 1;
         }
 
+        public void IncreaseAMount(Cargo item)
+        {
+            item.amount += 1;
+        }
+            
+      
     }
 }
