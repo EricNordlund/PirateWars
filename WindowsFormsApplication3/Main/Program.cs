@@ -16,6 +16,7 @@ namespace PirateWars
             
             DataAccessLayer dal = new DataAccessLayer();
             Game game = new Game();
+            game.InitializePots();
             Controller controller = new Controller(ref dal, ref game);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

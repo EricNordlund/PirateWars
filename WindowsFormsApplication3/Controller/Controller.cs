@@ -33,9 +33,14 @@ namespace PirateWars
             return game.GetPlayer().gold;
         }
 
-        public List<Cargo> GetCargoList()
+        public List<Cargo> GetPlayersCargoList()
         {
-            return game.GetPlayer().GetCargoList();
+            return game.GetPlayer().GetPlayersCargoList();
+        }
+
+        public List<Cargo> GetPortsCargoList(string portName)
+        {
+            return game.GetPort(portName).GetPortsCargoList();
         }
 
 

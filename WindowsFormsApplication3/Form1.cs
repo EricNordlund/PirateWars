@@ -37,11 +37,12 @@ namespace PirateWars
 
             
 
-            foreach (Cargo cargo in controller.GetCargoList())
+            foreach (Cargo cargo in controller.GetPlayersCargoList())
             {
                 dataGridViewInventory.Rows.Add(cargo.name, cargo.amount);
             }
 
+            
 
         }
         
@@ -67,32 +68,68 @@ namespace PirateWars
 
         private void port1_Click(object sender, EventArgs e)
         {
+            dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Tortuga.";
+            lblPortsTradingGoods.Text = "Tortugas Trading Goods";
+            foreach (Cargo cargo in controller.GetPortsCargoList("Tortuga"))
+            {
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+            }
         }
 
         private void port2_Click(object sender, EventArgs e)
         {
+            dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Black Water Bay.";
+            lblPortsTradingGoods.Text = "Black Water Bay Trading Goods";
+            foreach (Cargo cargo in controller.GetPortsCargoList("Black Water Bay"))
+            {
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+            }
         }
 
         private void port3_Click(object sender, EventArgs e)
         {
+            dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Providence.";
+            lblPortsTradingGoods.Text = "Providence Trading Goods";
+            foreach (Cargo cargo in controller.GetPortsCargoList("Providence"))
+            {
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+            }
         }
 
         private void port4_Click(object sender, EventArgs e)
         {
+            dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Isla de Muerta.";
+            lblPortsTradingGoods.Text = "Isla de Muerta Trading Goods";
+            foreach (Cargo cargo in controller.GetPortsCargoList("Isla de Muerta"))
+            {
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+            }
         }
 
         private void port5_Click(object sender, EventArgs e)
         {
+            dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Shipwreck Cove.";
+            lblPortsTradingGoods.Text = "Shipwreck Cove Trading Goods";
+            foreach (Cargo cargo in controller.GetPortsCargoList("Shipwreck Cove"))
+            {
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+            }
         }
 
         private void port6_Click(object sender, EventArgs e)
         {
+            dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Free Port.";
+            lblPortsTradingGoods.Text = "Free Port Trading Goods";
+            foreach (Cargo cargo in controller.GetPortsCargoList("Free Port"))
+            {
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+            }
         }
 
         //purchase
@@ -109,7 +146,7 @@ namespace PirateWars
             
             String temp = dataGridViewInventory.CurrentCell.OwningRow.Cells[0].Value as string; 
 
-            foreach (Cargo cargo in controller.GetCargoList())
+            foreach (Cargo cargo in controller.GetPlayersCargoList())
             {
                 if (cargo.name == temp)
                 {
@@ -118,6 +155,11 @@ namespace PirateWars
                 }
             }
             
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
