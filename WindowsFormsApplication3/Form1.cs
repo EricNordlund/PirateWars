@@ -73,7 +73,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Tortugas Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Tortuga"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
             }
         }
 
@@ -84,7 +84,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Black Water Bay Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Black Water Bay"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
             }
         }
 
@@ -95,7 +95,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Providence Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Providence"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
             }
         }
 
@@ -106,7 +106,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Isla de Muerta Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Isla de Muerta"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
             }
         }
 
@@ -117,7 +117,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Shipwreck Cove Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Shipwreck Cove"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
             }
         }
 
@@ -128,7 +128,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Free Port Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Free Port"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
             }
         }
 

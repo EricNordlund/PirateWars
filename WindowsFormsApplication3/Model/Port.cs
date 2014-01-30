@@ -29,6 +29,15 @@ namespace PirateWars
             cloth.amount = 100;
             gunpowder.amount = 100;
             pearl.amount = 100;
+            
+            bullet.price = 5;
+            rum.price = 3;
+            tobacco.price = 2;
+            spices.price = 1;
+            cloth.price = 1;
+            gunpowder.price = 2;
+            pearl.price = 5;
+
             portsCargoList.Add(bullet);
             portsCargoList.Add(rum);
             portsCargoList.Add(tobacco);
