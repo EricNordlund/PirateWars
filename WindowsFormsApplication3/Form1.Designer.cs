@@ -44,7 +44,6 @@
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
             this.inventoryItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewPort = new System.Windows.Forms.DataGridView();
             this.portItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.portQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,10 +51,11 @@
             this.lblTravel = new System.Windows.Forms.Label();
             this.lblPlayerInventory = new System.Windows.Forms.Label();
             this.lblPortsTradingGoods = new System.Windows.Forms.Label();
+            this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // port1
@@ -101,7 +101,7 @@
             // 
             // btnSell
             // 
-            this.btnSell.Location = new System.Drawing.Point(262, 208);
+            this.btnSell.Location = new System.Drawing.Point(262, 222);
             this.btnSell.Name = "btnSell";
             this.btnSell.Size = new System.Drawing.Size(75, 23);
             this.btnSell.TabIndex = 6;
@@ -111,7 +111,7 @@
             // 
             // btnPurchase
             // 
-            this.btnPurchase.Location = new System.Drawing.Point(262, 179);
+            this.btnPurchase.Location = new System.Drawing.Point(262, 193);
             this.btnPurchase.Name = "btnPurchase";
             this.btnPurchase.Size = new System.Drawing.Size(75, 23);
             this.btnPurchase.TabIndex = 7;
@@ -179,7 +179,7 @@
             this.inventoryItem,
             this.inventoryQuantity});
             this.dataGridViewInventory.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.cargoBindingSource, "name", true));
-            this.dataGridViewInventory.Location = new System.Drawing.Point(12, 179);
+            this.dataGridViewInventory.Location = new System.Drawing.Point(12, 193);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
             this.dataGridViewInventory.ReadOnly = true;
             this.dataGridViewInventory.Size = new System.Drawing.Size(244, 215);
@@ -204,10 +204,6 @@
             this.inventoryQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.inventoryQuantity.Width = 85;
             // 
-            // cargoBindingSource
-            // 
-            this.cargoBindingSource.DataSource = typeof(PirateWars.Cargo);
-            // 
             // dataGridViewPort
             // 
             this.dataGridViewPort.AllowUserToAddRows = false;
@@ -217,7 +213,7 @@
             this.portItem,
             this.portQuantity,
             this.portValue});
-            this.dataGridViewPort.Location = new System.Drawing.Point(343, 179);
+            this.dataGridViewPort.Location = new System.Drawing.Point(343, 193);
             this.dataGridViewPort.Name = "dataGridViewPort";
             this.dataGridViewPort.ReadOnly = true;
             this.dataGridViewPort.Size = new System.Drawing.Size(244, 215);
@@ -257,7 +253,7 @@
             // lblPlayerInventory
             // 
             this.lblPlayerInventory.AutoSize = true;
-            this.lblPlayerInventory.Location = new System.Drawing.Point(14, 163);
+            this.lblPlayerInventory.Location = new System.Drawing.Point(14, 177);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
             this.lblPlayerInventory.Size = new System.Drawing.Size(60, 13);
             this.lblPlayerInventory.TabIndex = 16;
@@ -266,18 +262,22 @@
             // lblPortsTradingGoods
             // 
             this.lblPortsTradingGoods.AutoSize = true;
-            this.lblPortsTradingGoods.Location = new System.Drawing.Point(340, 163);
+            this.lblPortsTradingGoods.Location = new System.Drawing.Point(340, 177);
             this.lblPortsTradingGoods.Name = "lblPortsTradingGoods";
             this.lblPortsTradingGoods.Size = new System.Drawing.Size(106, 13);
             this.lblPortsTradingGoods.TabIndex = 17;
             this.lblPortsTradingGoods.Text = "Port\'s Trading Goods";
             this.lblPortsTradingGoods.Click += new System.EventHandler(this.label1_Click_1);
             // 
+            // cargoBindingSource
+            // 
+            this.cargoBindingSource.DataSource = typeof(PirateWars.Cargo);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 405);
+            this.ClientSize = new System.Drawing.Size(598, 420);
             this.Controls.Add(this.lblPortsTradingGoods);
             this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.lblTravel);
@@ -299,8 +299,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
