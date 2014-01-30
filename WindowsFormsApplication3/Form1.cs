@@ -72,27 +72,27 @@ namespace PirateWars
 
         private void port2_Click(object sender, EventArgs e)
         {
-
+            lblPlayerName.Text = "Welcome " + pirateName + ", to Black Water Bay.";
         }
 
         private void port3_Click(object sender, EventArgs e)
         {
-
+            lblPlayerName.Text = "Welcome " + pirateName + ", to Providence.";
         }
 
         private void port4_Click(object sender, EventArgs e)
         {
-
+            lblPlayerName.Text = "Welcome " + pirateName + ", to Isla de Muerta.";
         }
 
         private void port5_Click(object sender, EventArgs e)
         {
-
+            lblPlayerName.Text = "Welcome " + pirateName + ", to Shipwreck Cove.";
         }
 
         private void port6_Click(object sender, EventArgs e)
         {
-
+            lblPlayerName.Text = "Welcome " + pirateName + ", to Free Port.";
         }
 
         //purchase
