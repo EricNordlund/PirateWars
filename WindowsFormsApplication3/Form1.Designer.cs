@@ -143,7 +143,7 @@
             // 
             this.lblPlayerName.AutoSize = true;
             this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerName.Location = new System.Drawing.Point(12, 9);
+            this.lblPlayerName.Location = new System.Drawing.Point(12, 6);
             this.lblPlayerName.Name = "lblPlayerName";
             this.lblPlayerName.Size = new System.Drawing.Size(19, 25);
             this.lblPlayerName.TabIndex = 10;
@@ -154,7 +154,7 @@
             // 
             this.playerGold.AutoSize = true;
             this.playerGold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerGold.Location = new System.Drawing.Point(13, 34);
+            this.playerGold.Location = new System.Drawing.Point(13, 42);
             this.playerGold.Name = "playerGold";
             this.playerGold.Size = new System.Drawing.Size(48, 20);
             this.playerGold.TabIndex = 11;
@@ -163,7 +163,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(272, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 65);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(54, 51);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -244,7 +244,7 @@
             // 
             this.lblTravel.AutoSize = true;
             this.lblTravel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTravel.Location = new System.Drawing.Point(409, 6);
+            this.lblTravel.Location = new System.Drawing.Point(424, 6);
             this.lblTravel.Name = "lblTravel";
             this.lblTravel.Size = new System.Drawing.Size(78, 25);
             this.lblTravel.TabIndex = 14;

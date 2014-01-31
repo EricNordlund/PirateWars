@@ -10,12 +10,12 @@ namespace PirateWars
     {
 
 
-        public void HandleException(String sender, Exception e)
+        public void HandleException(String sender)
         {
             switch (sender)
             {
-                case "x":
-                    ShowError("");
+                case "DecreaseAmountPlayer":
+                    ShowError("Can't sell because your item is out of stock!");
                     break;
                 case "y":
                     ShowError("");

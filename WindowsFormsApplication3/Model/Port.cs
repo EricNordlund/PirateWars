@@ -56,6 +56,16 @@ namespace PirateWars
         {
             return portName;
         }
+
+        public void DecreaseAmount(Cargo cargo)
+        {
+            cargo.amount -= 1;
+        }
+
+        public Cargo GetCargo(Cargo cargo)
+        {
+            return cargo;
+        }
         
         //Set pris på varje vara
 

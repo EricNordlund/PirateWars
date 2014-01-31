@@ -8,7 +8,7 @@ namespace PirateWars
     class Player
     {
 
-        Cargo bullet = new Cargo("Bullet");
+        Cargo bullet = new Cargo("Bullet"); 
         Cargo rum = new Cargo("Rum");
         Cargo tobacco = new Cargo("Tobacco");
         Cargo spices = new Cargo("Spices");
@@ -20,6 +20,7 @@ namespace PirateWars
 
         public string playerName { get; set; }
         public int gold { get; set; }
+        public Cargo cargo { get; set; }
 
         public Player(string name)
         {
@@ -49,14 +50,29 @@ namespace PirateWars
 
         public void DecreaseAmount(Cargo item)
         {
-            item.amount -= 1;
+            if (item.amount == 0)
+            {
+
+            }
+            else {
+                item.amount -= 1;
+            }
+            
         }
 
-        public void IncreaseAMount(Cargo item)
+        public void IncreaseAmount(Cargo item)
         {
             item.amount += 1;
         }
-            
-      
+
+        public Cargo GetCargo(Cargo cargo)
+        {
+            this.cargo = cargo;
+            return this.cargo;
+        }
+
+
+
+        
     }
 }

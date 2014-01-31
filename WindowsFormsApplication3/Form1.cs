@@ -150,7 +150,7 @@ namespace PirateWars
             {
                 if (cargo.name == temp)
                 {
-                    controller.GetGame().GetPlayer().DecreaseAmount(cargo);
+                    controller.DecreaseAmountPlayer(cargo);
                     //Console.WriteLine(controller.GetGame().GetPlayer().GetCargoList().);
                 }
             }
