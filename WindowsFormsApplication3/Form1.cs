@@ -151,10 +151,11 @@ namespace PirateWars
                 if (cargo.name == temp)
                 {
                     controller.DecreaseAmountPlayer(cargo);
-                    //Console.WriteLine(controller.GetGame().GetPlayer().GetCargoList().);
+                    dataGridViewInventory.CurrentRow.Cells[1].Value = cargo.amount;
                 }
             }
             
+
         }
 
         private void label1_Click_1(object sender, EventArgs e)
