@@ -20,5 +20,21 @@ namespace PirateWars
         {
             this.name = cargoName;
         }
+
+        /// <summary>
+        /// Increases the cargo amount by 1.
+        /// </summary>
+        public void IncreaseAmount()
+        {
+            this.amount += 1;
+        }
+
+        /// <summary>
+        /// Decreases the cargo amount by 1.
+        /// </summary>
+        public void DecreaseAmount()
+        {
+            this.amount -= 1;
+        }
     }
 }

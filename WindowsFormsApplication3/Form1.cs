@@ -41,9 +41,6 @@ namespace PirateWars
             {
                 dataGridViewInventory.Rows.Add(cargo.name, cargo.amount);
             }
-
-            
-
         }
         
         private void label1_Click(object sender, EventArgs e)
@@ -132,30 +129,67 @@ namespace PirateWars
             }
         }
 
+        private void UpdateView()
+        {
+            Player player = controller.GetGame().GetPlayer();
+            Port port = controller.GetGame().GetCurrentPort();
+
+            lblPlayerName.Text = "Welcome " + pirateName + ", to " + port.GetPortName() + ".";
+            lblPortsTradingGoods.Text = port.GetPortName() + " Trading Goods";
+            
+            playerGold.Text = player.GetGoldAmount() + " Golden Coins";
+
+            // remember the currently selected row and cell index
+            int rowIndex = dataGridViewPort.CurrentCell.RowIndex;
+            int cellIndex = dataGridViewPort.CurrentCell.ColumnIndex;
+        
+            dataGridViewPort.Rows.Clear();
+            foreach (Cargo cargo in port.GetPortsCargoList())
+            {
+                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
+            }
+
+            // reselect the right cell
+            dataGridViewPort.CurrentCell = dataGridViewPort.Rows[rowIndex].Cells[cellIndex];
+
+            // remember the currently selected row and cell index
+            rowIndex = dataGridViewInventory.CurrentCell.RowIndex;
+            cellIndex = dataGridViewInventory.CurrentCell.ColumnIndex;
+
+            dataGridViewInventory.Rows.Clear();
+            foreach (Cargo cargo in player.GetPlayersCargoList())
+            {
+                dataGridViewInventory.Rows.Add(cargo.name, cargo.amount, cargo.price);
+            }
+
+            // reselect the right cell
+            dataGridViewInventory.CurrentCell = dataGridViewInventory.Rows[rowIndex].Cells[cellIndex];
+        }
+
         //purchase
         private void button6_Click(object sender, EventArgs e)
         {
-            
-            
+            // get the selected row from the port gridview and remember the name of the cargo
+            String selectedCargoName = dataGridViewPort.CurrentRow.Cells[0].Value as string;
+
+            // buy the cargo from the current port
+            controller.GetGame().PurchaseCargoFromPort(selectedCargoName);
+
+            // update the view
+            UpdateView();
         }
 
         //sell
         private void button5_Click(object sender, EventArgs e)
         {
-            
-            
-            String temp = dataGridViewInventory.CurrentCell.OwningRow.Cells[0].Value as string; 
+            // get the selected row from the player gridview and remember the name of the cargo
+            String selectedCargoName = dataGridViewInventory.CurrentRow.Cells[0].Value as string;
 
-            foreach (Cargo cargo in controller.GetPlayersCargoList())
-            {
-                if (cargo.name == temp)
-                {
-                    controller.DecreaseAmountPlayer(cargo);
-                    dataGridViewInventory.CurrentRow.Cells[1].Value = cargo.amount;
-                }
-            }
+            // sell the cargo to the current port
+            controller.GetGame().SellCargoToPort(selectedCargoName);
             
-
+            // update the view
+            UpdateView();
         }
 
         private void label1_Click_1(object sender, EventArgs e)
