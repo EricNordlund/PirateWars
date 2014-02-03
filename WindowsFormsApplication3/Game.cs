@@ -10,6 +10,7 @@ namespace PirateWars
         private Port port;
         private List<Port> portList = new List<Port>();
         private Player player;
+
         public void InitializePots()
         {
             Port tartuga = new Port("Tortuga");
@@ -48,6 +49,55 @@ namespace PirateWars
         public void SetPlayerName(string pirateName)
         {
             player = new Player(pirateName);
+        }
+
+        /// <summary>
+        /// Returns the currently selected port.
+        /// </summary>
+        /// <returns>The current port</returns>
+        public Port GetCurrentPort()
+        {
+            return this.port;
+        }
+
+        /// <summary>
+        /// Purchases the selected cargo from the current port and adds it to the player's inventory
+        /// and updates the gold amount.
+        /// </summary>
+        /// <param name="cargoName">The name of the cargo to purchase</param>
+        public void PurchaseCargoFromPort(String cargoName)
+        {
+            Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.name == cargoName);
+            Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.name == cargoName);
+
+            // check if the player has enough gold
+            if (player.GetGoldAmount() >= portCargo.price)
+            {
+                playerCargo.IncreaseAmount();
+                portCargo.DecreaseAmount();
+
+                player.DecreaseGold(portCargo.price);
+            }
+        }
+
+        /// <summary>
+        /// Sells the selected cargo from the player's inventory and adds it to the current port
+        /// and updates the gold amount.
+        /// </summary>
+        /// <param name="cargoName">The name of the cargo to sell</param>
+        public void SellCargoToPort(String cargoName)
+        {
+            Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.name == cargoName);
+            Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.name == cargoName);
+
+            // check if the player has this cargo
+            if (playerCargo.amount > 0)
+            {
+                playerCargo.DecreaseAmount();
+                portCargo.IncreaseAmount();
+
+                player.IncreaseGold(portCargo.price);
+            }
         }
         
     }
