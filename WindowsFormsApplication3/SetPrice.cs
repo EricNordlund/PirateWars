@@ -15,7 +15,7 @@ namespace PirateWars
         private int initialCargoPriceRum = 80;
         private int initialCargoPriceTobacco = 70;
         private int initialCargoPriceCloth = 60;
-        private int initialCargoPriceGunpowder = 50;
+        private int initialCargoPriceGunPowder = 50;
         private int initialCargoPricePearls = 40;
 
         
