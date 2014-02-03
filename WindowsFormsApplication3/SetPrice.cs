@@ -20,6 +20,7 @@ namespace PirateWars
 
         
         /**
+         * Function to change the price of a cargo in ports each move. 
          * @param initialPrice The price of the cargo at the start of the  function
          * @param priceDirectionUp Indicates if the cargo price is moving. Up or down.
          * @return The new price of the specific cargo.
