@@ -85,7 +85,7 @@ namespace PirateWars
         /// and updates the gold amount.
         /// </summary>
         /// <param name="cargoName">The name of the cargo to sell</param>
-        public void SellCargoToPort(String cargoName)
+        public bool SellCargoToPort(String cargoName)
         {
             Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.name == cargoName);
             Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.name == cargoName);
@@ -97,9 +97,13 @@ namespace PirateWars
                 portCargo.IncreaseAmount();
 
                 player.IncreaseGold(portCargo.price);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         
     }
 }
-

@@ -43,29 +43,5 @@ namespace PirateWars
         {
             return game.GetPort(portName).GetPortsCargoList();
         }
-
-        public void DecreaseAmountPlayer(Cargo cargo)
-        {
-            if(game.GetPlayer().GetCargo(cargo).amount>0)
-            {
-                game.GetPlayer().DecreaseAmount(cargo);
-            }
-            else
-            {
-                exceptionHandler.HandleException("DecreaseAmountPlayer");
-            }
-        }
-
-        public void DecreaseAmountPort(Cargo cargo, Port port)
-        {
-            if(port.GetCargo(cargo).amount>0)
-            {
-                port.DecreaseAmount(cargo);
-            }
-            else
-            {
-                exceptionHandler.HandleException(cargo + "is currently out of stock");
-            }
-        }
     }
 }

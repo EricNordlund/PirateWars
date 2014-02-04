@@ -15,7 +15,7 @@ namespace PirateWars
         
         string pirateName;
         Controller controller;
-        
+        ExceptionHandler eh = new ExceptionHandler();
         
         public Form1(ref Controller controller)
         {
@@ -70,7 +70,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Tortugas Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Tortuga"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
         }
 
@@ -81,7 +81,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Black Water Bay Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Black Water Bay"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
         }
 
@@ -92,7 +92,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Providence Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Providence"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.name,cargo.price);
             }
         }
 
@@ -103,7 +103,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Isla de Muerta Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Isla de Muerta"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
         }
 
@@ -114,7 +114,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Shipwreck Cove Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Shipwreck Cove"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
         }
 
@@ -125,19 +125,21 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Free Port Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Free Port"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
         }
 
         private void UpdateView()
         {
+
             Player player = controller.GetGame().GetPlayer();
             Port port = controller.GetGame().GetCurrentPort();
 
             lblPlayerName.Text = "Welcome " + pirateName + ", to " + port.GetPortName() + ".";
-            lblPortsTradingGoods.Text = port.GetPortName() + " Trading Goods";
+            lblPortsTradingGoods.Text = port.GetPortName() + "s Trading Goods";
             
             playerGold.Text = player.GetGoldAmount() + " Golden Coins";
+            
 
             // remember the currently selected row and cell index
             int rowIndex = dataGridViewPort.CurrentCell.RowIndex;
@@ -146,7 +148,7 @@ namespace PirateWars
             dataGridViewPort.Rows.Clear();
             foreach (Cargo cargo in port.GetPortsCargoList())
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.amount, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
 
             // reselect the right cell
@@ -159,7 +161,7 @@ namespace PirateWars
             dataGridViewInventory.Rows.Clear();
             foreach (Cargo cargo in player.GetPlayersCargoList())
             {
-                dataGridViewInventory.Rows.Add(cargo.name, cargo.amount, cargo.price);
+                dataGridViewInventory.Rows.Add(cargo.name, cargo.amount);
             }
 
             // reselect the right cell
@@ -186,10 +188,19 @@ namespace PirateWars
             String selectedCargoName = dataGridViewInventory.CurrentRow.Cells[0].Value as string;
 
             // sell the cargo to the current port
-            controller.GetGame().SellCargoToPort(selectedCargoName);
-            
+            try
+            {
+                if (controller.GetGame().SellCargoToPort(selectedCargoName).Equals(false))
+                {
+                    eh.HandleException("DecreaseAmountPlayer");
+                }
             // update the view
             UpdateView();
+            }
+            catch (Exception er)
+            {
+                eh.HandleException("SelectPort");
+            }
         }
 
         private void label1_Click_1(object sender, EventArgs e)

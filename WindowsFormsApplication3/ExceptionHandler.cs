@@ -17,8 +17,8 @@ namespace PirateWars
                 case "DecreaseAmountPlayer":
                     ShowError("Can't sell because your item is out of stock!");
                     break;
-                case "y":
-                    ShowError("");
+                case "SelectPort":
+                    ShowError("Yarr, Captain! You must travel to a port first!");
                     break;
             }
         }
