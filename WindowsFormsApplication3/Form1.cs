@@ -138,6 +138,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = port.GetPortName() + " Trading Goods";
             
             playerGold.Text = player.GetGoldAmount() + " Golden Coins";
+            
 
             // remember the currently selected row and cell index
             int rowIndex = dataGridViewPort.CurrentCell.RowIndex;
