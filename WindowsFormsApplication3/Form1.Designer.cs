@@ -46,11 +46,13 @@
             this.inventoryQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewPort = new System.Windows.Forms.DataGridView();
+            this.portItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.portValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTravel = new System.Windows.Forms.Label();
             this.lblPlayerInventory = new System.Windows.Forms.Label();
             this.lblPortsTradingGoods = new System.Windows.Forms.Label();
-            this.portItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.portValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorLabel = new System.Windows.Forms.Label();
+            this.labelTimer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
@@ -222,6 +224,20 @@
             this.dataGridViewPort.TabIndex = 13;
             this.dataGridViewPort.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // portItem
+            // 
+            this.portItem.HeaderText = "Item";
+            this.portItem.Name = "portItem";
+            this.portItem.ReadOnly = true;
+            this.portItem.Width = 125;
+            // 
+            // portValue
+            // 
+            this.portValue.HeaderText = "Value";
+            this.portValue.Name = "portValue";
+            this.portValue.ReadOnly = true;
+            this.portValue.Width = 75;
+            // 
             // lblTravel
             // 
             this.lblTravel.AutoSize = true;
@@ -251,25 +267,34 @@
             this.lblPortsTradingGoods.Text = "Port\'s Trading Goods";
             this.lblPortsTradingGoods.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // portItem
+            // errorLabel
             // 
-            this.portItem.HeaderText = "Item";
-            this.portItem.Name = "portItem";
-            this.portItem.ReadOnly = true;
-            this.portItem.Width = 125;
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.errorLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorLabel.Location = new System.Drawing.Point(16, 140);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorLabel.TabIndex = 18;
+            this.errorLabel.Click += new System.EventHandler(this.label1_Click_2);
             // 
-            // portValue
+            // labelTimer
             // 
-            this.portValue.HeaderText = "Value";
-            this.portValue.Name = "portValue";
-            this.portValue.ReadOnly = true;
-            this.portValue.Width = 75;
+            this.labelTimer.AutoSize = true;
+            this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.labelTimer.Location = new System.Drawing.Point(276, 383);
+            this.labelTimer.Name = "labelTimer";
+            this.labelTimer.Size = new System.Drawing.Size(48, 25);
+            this.labelTimer.TabIndex = 19;
+            this.labelTimer.Text = "100";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 420);
+            this.Controls.Add(this.labelTimer);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.lblPortsTradingGoods);
             this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.lblTravel);
@@ -321,5 +346,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn portItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn portValue;
+        private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Label labelTimer;
     }
 }

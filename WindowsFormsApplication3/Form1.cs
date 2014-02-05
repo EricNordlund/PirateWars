@@ -65,6 +65,8 @@ namespace PirateWars
 
         private void port1_Click(object sender, EventArgs e)
         {
+            Button currentButton = sender as Button;
+            DisableCurrentButton(currentButton);
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Tortuga.";
             lblPortsTradingGoods.Text = "Tortugas Trading Goods";
@@ -72,10 +74,13 @@ namespace PirateWars
             {
                 dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
+            EndTurn();
         }
 
         private void port2_Click(object sender, EventArgs e)
         {
+            Button currentButton = sender as Button;
+            DisableCurrentButton(currentButton);
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Black Water Bay.";
             lblPortsTradingGoods.Text = "Black Water Bay Trading Goods";
@@ -83,10 +88,13 @@ namespace PirateWars
             {
                 dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
+            EndTurn();
         }
 
         private void port3_Click(object sender, EventArgs e)
         {
+            Button currentButton = sender as Button;
+            DisableCurrentButton(currentButton);
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Providence.";
             lblPortsTradingGoods.Text = "Providence Trading Goods";
@@ -94,10 +102,13 @@ namespace PirateWars
             {
                 dataGridViewPort.Rows.Add(cargo.name,cargo.price);
             }
+            EndTurn();
         }
 
         private void port4_Click(object sender, EventArgs e)
         {
+            Button currentButton = sender as Button;
+            DisableCurrentButton(currentButton);
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Isla de Muerta.";
             lblPortsTradingGoods.Text = "Isla de Muerta Trading Goods";
@@ -105,10 +116,13 @@ namespace PirateWars
             {
                 dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
+            EndTurn();
         }
 
         private void port5_Click(object sender, EventArgs e)
         {
+            Button currentButton = sender as Button;
+            DisableCurrentButton(currentButton);
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Shipwreck Cove.";
             lblPortsTradingGoods.Text = "Shipwreck Cove Trading Goods";
@@ -116,10 +130,13 @@ namespace PirateWars
             {
                 dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
+            EndTurn();
         }
 
         private void port6_Click(object sender, EventArgs e)
         {
+            Button currentButton = sender as Button;
+            DisableCurrentButton(currentButton);
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Free Port.";
             lblPortsTradingGoods.Text = "Free Port Trading Goods";
@@ -127,6 +144,7 @@ namespace PirateWars
             {
                 dataGridViewPort.Rows.Add(cargo.name, cargo.price);
             }
+            EndTurn();
         }
 
         private void UpdateView()
@@ -167,18 +185,29 @@ namespace PirateWars
             // reselect the right cell
             dataGridViewInventory.CurrentCell = dataGridViewInventory.Rows[rowIndex].Cells[cellIndex];
         }
+        
 
         //purchase
         private void button6_Click(object sender, EventArgs e)
         {
-            // get the selected row from the port gridview and remember the name of the cargo
-            String selectedCargoName = dataGridViewPort.CurrentRow.Cells[0].Value as string;
-
             // buy the cargo from the current port
-            controller.GetGame().PurchaseCargoFromPort(selectedCargoName);
+            try
+            {
+                // get the selected row from the port gridview and remember the name of the cargo
+                String selectedCargoName = dataGridViewPort.CurrentRow.Cells[0].Value as string;
 
-            // update the view
-            UpdateView();
+                if (controller.GetGame().PurchaseCargoFromPort(selectedCargoName).Equals(false))
+                {
+                    errorLabel.Text = eh.HandleException("NoGold");
+                }
+                // update the view
+                UpdateView();
+            }
+            catch(Exception er)
+            {
+                errorLabel.Text = eh.HandleException("SelectPort");
+            }
+
         }
 
         //sell
@@ -192,18 +221,39 @@ namespace PirateWars
             {
                 if (controller.GetGame().SellCargoToPort(selectedCargoName).Equals(false))
                 {
-                    eh.HandleException("DecreaseAmountPlayer");
+                    errorLabel.Text = eh.HandleException("DecreaseAmountPlayer");
                 }
             // update the view
             UpdateView();
             }
             catch (Exception er)
             {
-                eh.HandleException("SelectPort");
+                errorLabel.Text = eh.HandleException("SelectPort");
             }
         }
 
+        private void EndTurn()
+        {
+            labelTimer.Text = controller.GetGame().EndTurn();
+        }
+
+        private void DisableCurrentButton(Button sender)
+        {
+            port1.Enabled = true;
+            port2.Enabled = true;
+            port3.Enabled = true;
+            port4.Enabled = true;
+            port5.Enabled = true;
+            port6.Enabled = true;
+            sender.Enabled = false;
+        }
+
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
         {
 
         }

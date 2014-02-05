@@ -10,6 +10,7 @@ namespace PirateWars
         private Port port;
         private List<Port> portList = new List<Port>();
         private Player player;
+        private int turn = 30;
 
         public void InitializePots()
         {
@@ -25,6 +26,21 @@ namespace PirateWars
             portList.Add(shipwreck);
             portList.Add(freePort);
             portList.Add(islaDeMuerta);
+        }
+
+        public String EndTurn()
+        {
+            turn--;
+            if (turn == 0)
+            {
+                GameOver();
+            }
+            return turn.ToString();
+        }
+
+        public void GameOver()
+        {
+            Console.WriteLine("Game over man, game over! Här ska det väl vara någon slags databas insert med highscore");
         }
 
         public Player GetPlayer()
@@ -65,7 +81,7 @@ namespace PirateWars
         /// and updates the gold amount.
         /// </summary>
         /// <param name="cargoName">The name of the cargo to purchase</param>
-        public void PurchaseCargoFromPort(String cargoName)
+        public bool PurchaseCargoFromPort(String cargoName)
         {
             Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.name == cargoName);
             Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.name == cargoName);
@@ -77,6 +93,11 @@ namespace PirateWars
                 portCargo.DecreaseAmount();
 
                 player.DecreaseGold(portCargo.price);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

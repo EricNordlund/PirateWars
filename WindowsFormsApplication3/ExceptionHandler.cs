@@ -10,22 +10,23 @@ namespace PirateWars
     {
 
 
-        public void HandleException(String sender)
+        public String HandleException(String sender)
         {
             switch (sender)
             {
                 case "DecreaseAmountPlayer":
-                    ShowError("Can't sell because your item is out of stock!");
-                    break;
+                    return ShowError("Captain, we don't have more of that perticular of those goods!");
                 case "SelectPort":
-                    ShowError("Yarr, Captain! You must travel to a port first!");
-                    break;
+                    return ShowError("Yarr, Captain! You must travel to a port first!");
+                case "NoGold":
+                    return ShowError("Shiver me timbers, Captain! We're out of gold");
             }
+            return null;
         }
 
-        public void ShowError(String error)
+        public String ShowError(String error)
         {
-            MessageBox.Show(error);
+            return error;
         }
     }
 }
