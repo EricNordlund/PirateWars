@@ -11,6 +11,7 @@ namespace PirateWars
         public string name { get; set; }
         public int amount { get; set; }
         public int price { get; set; }
+        public bool priceDirectionUp { get; set; }
 
         /**
          * The constructor class
@@ -19,6 +20,7 @@ namespace PirateWars
         public Cargo(string cargoName)
         {
             this.name = cargoName;
+            this.priceDirectionUp = true;
         }
 
         /// <summary>

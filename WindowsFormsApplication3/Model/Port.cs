@@ -9,34 +9,19 @@ namespace PirateWars
     {
         string portName;
         
-        Cargo bullet = new Cargo("Bullet");
+        Cargo bullet = new Cargo("Bullets");
         Cargo rum = new Cargo("Rum");
         Cargo tobacco = new Cargo("Tobacco");
         Cargo spices = new Cargo("Spices");
         Cargo cloth = new Cargo("Cloth");
         Cargo gunpowder = new Cargo("Gunpowder");
-        Cargo pearl = new Cargo("Pearl");
+        Cargo pearl = new Cargo("Pearls");
 
         List<Cargo> portsCargoList = new List<Cargo>();
 
-        public Port(string port)
+        public Port(string port, SetPrice setPrice)
         {
             portName = port;
-            bullet.amount = 100;
-            rum.amount = 100;
-            tobacco.amount = 100;
-            spices.amount = 100;
-            cloth.amount = 100;
-            gunpowder.amount = 100;
-            pearl.amount = 100;
-            
-            bullet.price = 5;
-            rum.price = 3;
-            tobacco.price = 2;
-            spices.price = 1;
-            cloth.price = 1;
-            gunpowder.price = 2;
-            pearl.price = 5;
 
             portsCargoList.Add(bullet);
             portsCargoList.Add(rum);
@@ -45,6 +30,11 @@ namespace PirateWars
             portsCargoList.Add(cloth);
             portsCargoList.Add(gunpowder);
             portsCargoList.Add(pearl);
+
+            foreach (Cargo cargo in portsCargoList)
+            {
+                cargo.price = setPrice.initialPrice(cargo.name);
+            }
         }
 
         public List<Cargo> GetPortsCargoList()

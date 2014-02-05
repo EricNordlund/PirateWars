@@ -11,15 +11,16 @@ namespace PirateWars
         private List<Port> portList = new List<Port>();
         private Player player;
         private int turn = 30;
+        private SetPrice setPrice = new SetPrice();
 
         public void InitializePots()
         {
-            Port tartuga = new Port("Tortuga");
-            Port blackwater = new Port("Black Water Bay");
-            Port providence = new Port("Providence");
-            Port shipwreck = new Port("Shipwreck Cove");
-            Port freePort = new Port("Free Port");
-            Port islaDeMuerta = new Port("Isla de Muerta");
+            Port tartuga = new Port("Tortuga", setPrice);
+            Port blackwater = new Port("Black Water Bay", setPrice);
+            Port providence = new Port("Providence", setPrice);
+            Port shipwreck = new Port("Shipwreck Cove", setPrice);
+            Port freePort = new Port("Free Port", setPrice);
+            Port islaDeMuerta = new Port("Isla de Muerta", setPrice);
             portList.Add(tartuga);
             portList.Add(blackwater);
             portList.Add(providence);
@@ -123,6 +124,21 @@ namespace PirateWars
             else
             {
                 return false;
+            }
+        }
+
+        /**
+         * Updates all of the prices in all of the ports.
+         * */
+        public void UpdatePrices()
+        {
+            foreach (Port port in portList)
+            {
+                List<Cargo> cargoList = port.GetPortsCargoList();
+                foreach (Cargo cargo in cargoList)
+                {
+                    cargo.price = setPrice.PriceChangeMove(cargo.price, true);
+                }
             }
         }
         

@@ -7,7 +7,7 @@ namespace PirateWars
         private Random rand = new Random();
 
         //Price configuration
-        private int priceDirectionChance = 35;
+        private int priceDirectionChance = 80;
         private int priceChangeMinimumPercentage = 5;
         private int priceChangeMaximumPercentage = 10;
         private int initialCargoPriceSpices = 100;
@@ -61,28 +61,20 @@ namespace PirateWars
             {
                 case "Spices":
                     return initialCargoPriceSpices;
-                    break;
                 case "Bullets":
                     return initialCargoPriceBullets;
-                    break;
                 case "Rum":
                     return initialCargoPriceRum;
-                    break;
                 case "Tobacco":
                     return initialCargoPriceTobacco;
-                    break;
                 case "Cloth":
                     return initialCargoPriceCloth;
-                    break;
                 case "Gunpowder":
                     return initialCargoPriceGunPowder;
-                    break;
                 case "Pearls":
                     return initialCargoPricePearls;
-                    break;
                 default:
                     return 0;
-                    break;
             }
         }
 
