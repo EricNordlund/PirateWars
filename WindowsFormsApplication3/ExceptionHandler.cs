@@ -15,7 +15,7 @@ namespace PirateWars
             switch (sender)
             {
                 case "DecreaseAmountPlayer":
-                    return ShowError("Captain, we don't have more of that perticular of those goods!");
+                    return ShowError("Captain, we don't have more of those goods!");
                 case "SelectPort":
                     return ShowError("Yarr, Captain! You must travel to a port first!");
                 case "NoGold":
