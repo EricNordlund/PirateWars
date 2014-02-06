@@ -39,7 +39,7 @@ namespace PirateWars
 
             foreach (Cargo cargo in controller.GetPlayersCargoList())
             {
-                dataGridViewInventory.Rows.Add(cargo.name, cargo.amount);
+                dataGridViewInventory.Rows.Add(cargo.Name, cargo.Amount);
             }
         }
         
@@ -73,7 +73,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Tortugas Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Tortuga"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
             EndTurn();
         }
@@ -88,7 +88,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Black Water Bay Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Black Water Bay"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
             EndTurn();
         }
@@ -103,7 +103,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Providence Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Providence"))
             {
-                dataGridViewPort.Rows.Add(cargo.name,cargo.price);
+                dataGridViewPort.Rows.Add(cargo.Name,cargo.Price);
             }
             EndTurn();
         }
@@ -118,7 +118,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Isla de Muerta Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Isla de Muerta"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
             EndTurn();
         }
@@ -133,7 +133,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Shipwreck Cove Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Shipwreck Cove"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
             EndTurn();
         }
@@ -148,7 +148,7 @@ namespace PirateWars
             lblPortsTradingGoods.Text = "Free Port Trading Goods";
             foreach (Cargo cargo in controller.GetPortsCargoList("Free Port"))
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
             EndTurn();
         }
@@ -162,7 +162,7 @@ namespace PirateWars
             lblPlayerName.Text = "Welcome " + pirateName + ", to " + port.GetPortName() + ".";
             lblPortsTradingGoods.Text = port.GetPortName() + "s Trading Goods";
             
-            playerGold.Text = player.GetGoldAmount() + " Golden Coins";
+            playerGold.Text = player.Gold + " Golden Coins";
             
 
             // remember the currently selected row and cell index
@@ -172,7 +172,7 @@ namespace PirateWars
             dataGridViewPort.Rows.Clear();
             foreach (Cargo cargo in port.GetPortsCargoList())
             {
-                dataGridViewPort.Rows.Add(cargo.name, cargo.price);
+                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
 
             // reselect the right cell
@@ -185,7 +185,7 @@ namespace PirateWars
             dataGridViewInventory.Rows.Clear();
             foreach (Cargo cargo in player.GetPlayersCargoList())
             {
-                dataGridViewInventory.Rows.Add(cargo.name, cargo.amount);
+                dataGridViewInventory.Rows.Add(cargo.Name, cargo.Amount);
             }
 
             // reselect the right cell

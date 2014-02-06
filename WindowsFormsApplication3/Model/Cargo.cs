@@ -8,11 +8,18 @@ namespace PirateWars
 {
     class Cargo
     {
+<<<<<<< HEAD
         public string name { get; set; }
         public int amount { get; set; }
         public int price { get; set; }
         public bool priceDirectionUp { get; set; }
+=======
+        private string name;
+        private int price;
+        private int amount;
+>>>>>>> remotes/origin/JohanTest
 
+        
         /**
          * The constructor class
          * @param cargoName The type of the cargo. e.g. sugar
@@ -21,6 +28,24 @@ namespace PirateWars
         {
             this.name = cargoName;
             this.priceDirectionUp = true;
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public int Amount
+        {
+            get { return amount; }
+            set { amount = value; }
+        }
+
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
         }
 
         /// <summary>
