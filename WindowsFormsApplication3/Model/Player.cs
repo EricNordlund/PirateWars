@@ -25,13 +25,13 @@ namespace PirateWars
         {
             this.playerName = name;
             this.gold = 100;
-            bullet.amount = 2;
-            rum.amount = 2;
-            tobacco.amount = 2;
-            spices.amount = 0;
-            cloth.amount = 0;
-            gunpowder.amount = 0;
-            pearl.amount = 0;
+            bullet.Amount = 2;
+            rum.Amount = 2;
+            tobacco.Amount = 2;
+            spices.Amount = 0;
+            cloth.Amount = 0;
+            gunpowder.Amount = 0;
+            pearl.Amount = 0;
             playersCargoList.Add(bullet);
             playersCargoList.Add(rum);
             playersCargoList.Add(tobacco);
@@ -49,12 +49,12 @@ namespace PirateWars
 
         public void DecreaseAmount(Cargo item)
         {
-            item.amount -= 1;
+            item.Amount -= 1;
         }
 
         public void IncreaseAMount(Cargo item)
         {
-            item.amount += 1;
+            item.Amount += 1;
         }
         
         /// <summary>

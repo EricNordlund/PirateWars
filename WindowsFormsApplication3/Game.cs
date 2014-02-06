@@ -83,16 +83,16 @@ namespace PirateWars
         /// <param name="cargoName">The name of the cargo to purchase</param>
         public bool PurchaseCargoFromPort(String cargoName)
         {
-            Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.name == cargoName);
-            Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.name == cargoName);
+            Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.Name == cargoName);
+            Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.Name == cargoName);
 
             // check if the player has enough gold
-            if (player.GetGoldAmount() >= portCargo.price)
+            if (player.GetGoldAmount() >= portCargo.Price)
             {
                 playerCargo.IncreaseAmount();
                 portCargo.DecreaseAmount();
 
-                player.DecreaseGold(portCargo.price);
+                player.DecreaseGold(portCargo.Price);
                 return true;
             }
             else
@@ -108,16 +108,16 @@ namespace PirateWars
         /// <param name="cargoName">The name of the cargo to sell</param>
         public bool SellCargoToPort(String cargoName)
         {
-            Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.name == cargoName);
-            Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.name == cargoName);
+            Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.Name == cargoName);
+            Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.Name == cargoName);
 
             // check if the player has this cargo
-            if (playerCargo.amount > 0)
+            if (playerCargo.Amount > 0)
             {
                 playerCargo.DecreaseAmount();
                 portCargo.IncreaseAmount();
 
-                player.IncreaseGold(portCargo.price);
+                player.IncreaseGold(portCargo.Price);
                 return true;
             }
             else

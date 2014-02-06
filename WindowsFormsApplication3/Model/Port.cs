@@ -7,7 +7,7 @@ namespace PirateWars
 {
     class Port
     {
-        string portName;
+        private string portName;
         
         Cargo bullet = new Cargo("Bullet");
         Cargo rum = new Cargo("Rum");
@@ -17,26 +17,26 @@ namespace PirateWars
         Cargo gunpowder = new Cargo("Gunpowder");
         Cargo pearl = new Cargo("Pearl");
 
-        List<Cargo> portsCargoList = new List<Cargo>();
+        private List<Cargo> portsCargoList = new List<Cargo>();
 
         public Port(string port)
         {
             portName = port;
-            bullet.amount = 100;
-            rum.amount = 100;
-            tobacco.amount = 100;
-            spices.amount = 100;
-            cloth.amount = 100;
-            gunpowder.amount = 100;
-            pearl.amount = 100;
+            bullet.Amount = 100;
+            rum.Amount = 100;
+            tobacco.Amount = 100;
+            spices.Amount = 100;
+            cloth.Amount = 100;
+            gunpowder.Amount = 100;
+            pearl.Amount = 100;
             
-            bullet.price = 5;
-            rum.price = 3;
-            tobacco.price = 2;
-            spices.price = 1;
-            cloth.price = 1;
-            gunpowder.price = 2;
-            pearl.price = 5;
+            bullet.Price = 5;
+            rum.Price = 3;
+            tobacco.Price = 2;
+            spices.Price = 1;
+            cloth.Price = 1;
+            gunpowder.Price = 2;
+            pearl.Price = 5;
 
             portsCargoList.Add(bullet);
             portsCargoList.Add(rum);
@@ -59,7 +59,7 @@ namespace PirateWars
 
         public void DecreaseAmount(Cargo cargo)
         {
-            cargo.amount -= 1;
+            cargo.Amount -= 1;
         }
 
         public Cargo GetCargo(Cargo cargo)
