@@ -7,19 +7,18 @@ namespace PirateWars
 {
     class Player
     {
+        private string playerName;
+        private int gold;
+       
+        private Cargo bullet = new Cargo("Bullet");
+        private Cargo rum = new Cargo("Rum");
+        private Cargo tobacco = new Cargo("Tobacco");
+        private Cargo spices = new Cargo("Spices");
+        private Cargo cloth = new Cargo("Cloth");
+        private Cargo gunpowder = new Cargo("Gunpowder");
+        private Cargo pearl = new Cargo("Pearl");
 
-        Cargo bullet = new Cargo("Bullet");
-        Cargo rum = new Cargo("Rum");
-        Cargo tobacco = new Cargo("Tobacco");
-        Cargo spices = new Cargo("Spices");
-        Cargo cloth = new Cargo("Cloth");
-        Cargo gunpowder = new Cargo("Gunpowder");
-        Cargo pearl = new Cargo("Pearl");
-
-        List<Cargo> playersCargoList = new List<Cargo>();
-
-        public string playerName { get; set; }
-        public int gold { get; set; }
+        private List<Cargo> playersCargoList = new List<Cargo>();
 
         public Player(string name)
         {
@@ -42,6 +41,18 @@ namespace PirateWars
 
         }
 
+        public string PlayerName
+        {
+            get { return playerName; }
+            set { playerName = value; }
+        }
+
+        public int Gold
+        {
+            get { return gold; }
+            set { gold = value; }
+        }
+
         public List<Cargo> GetPlayersCargoList()
         {
            return playersCargoList;
@@ -52,20 +63,11 @@ namespace PirateWars
             item.Amount -= 1;
         }
 
-        public void IncreaseAMount(Cargo item)
+        public void IncreaseAmount(Cargo item)
         {
             item.Amount += 1;
         }
         
-        /// <summary>
-        /// Returns the total gold amount of the player.
-        /// </summary>
-        /// <returns>The gold amount</returns>
-        public int GetGoldAmount()
-        {
-            return gold;
-        }
-
         /// <summary>
         /// Increases gold by the specified amount.
         /// </summary>

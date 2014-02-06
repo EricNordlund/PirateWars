@@ -87,7 +87,7 @@ namespace PirateWars
             Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.Name == cargoName);
 
             // check if the player has enough gold
-            if (player.GetGoldAmount() >= portCargo.Price)
+            if (player.Gold >= portCargo.Price)
             {
                 playerCargo.IncreaseAmount();
                 portCargo.DecreaseAmount();

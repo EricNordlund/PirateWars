@@ -31,7 +31,7 @@ namespace PirateWars
 
         public int GetPlayerStartingGold()
         {
-            return game.GetPlayer().gold;
+            return game.GetPlayer().Gold;
         }
 
         public List<Cargo> GetPlayersCargoList()

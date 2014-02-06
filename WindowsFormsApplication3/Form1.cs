@@ -156,7 +156,7 @@ namespace PirateWars
             lblPlayerName.Text = "Welcome " + pirateName + ", to " + port.GetPortName() + ".";
             lblPortsTradingGoods.Text = port.GetPortName() + "s Trading Goods";
             
-            playerGold.Text = player.GetGoldAmount() + " Golden Coins";
+            playerGold.Text = player.Gold + " Golden Coins";
             
 
             // remember the currently selected row and cell index
