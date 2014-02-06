@@ -44,19 +44,19 @@
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
             this.inventoryItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewPort = new System.Windows.Forms.DataGridView();
-            this.portItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.portValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTravel = new System.Windows.Forms.Label();
             this.lblPlayerInventory = new System.Windows.Forms.Label();
             this.lblPortsTradingGoods = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
             this.labelTimer = new System.Windows.Forms.Label();
+            this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.portValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.portItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // port1
@@ -205,10 +205,6 @@
             this.inventoryQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.inventoryQuantity.Width = 85;
             // 
-            // cargoBindingSource
-            // 
-            this.cargoBindingSource.DataSource = typeof(PirateWars.Cargo);
-            // 
             // dataGridViewPort
             // 
             this.dataGridViewPort.AllowUserToAddRows = false;
@@ -223,20 +219,6 @@
             this.dataGridViewPort.Size = new System.Drawing.Size(244, 215);
             this.dataGridViewPort.TabIndex = 13;
             this.dataGridViewPort.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // portItem
-            // 
-            this.portItem.HeaderText = "Item";
-            this.portItem.Name = "portItem";
-            this.portItem.ReadOnly = true;
-            this.portItem.Width = 125;
-            // 
-            // portValue
-            // 
-            this.portValue.HeaderText = "Value";
-            this.portValue.Name = "portValue";
-            this.portValue.ReadOnly = true;
-            this.portValue.Width = 75;
             // 
             // lblTravel
             // 
@@ -288,6 +270,24 @@
             this.labelTimer.TabIndex = 19;
             this.labelTimer.Text = "100";
             // 
+            // cargoBindingSource
+            // 
+            this.cargoBindingSource.DataSource = typeof(PirateWars.Cargo);
+            // 
+            // portValue
+            // 
+            this.portValue.HeaderText = "Value";
+            this.portValue.Name = "portValue";
+            this.portValue.ReadOnly = true;
+            this.portValue.Width = 75;
+            // 
+            // portItem
+            // 
+            this.portItem.HeaderText = "Item";
+            this.portItem.Name = "portItem";
+            this.portItem.ReadOnly = true;
+            this.portItem.Width = 125;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,8 +316,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,9 +344,9 @@
         private System.Windows.Forms.BindingSource cargoBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn portItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn portValue;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Label labelTimer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn portItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn portValue;
     }
 }

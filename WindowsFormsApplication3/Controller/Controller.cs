@@ -43,5 +43,10 @@ namespace PirateWars
         {
             return game.GetPort(portName).GetPortsCargoList();
         }
+
+        public void UpdatePrices()
+        {
+            game.UpdatePrices();
+        }
     }
 }

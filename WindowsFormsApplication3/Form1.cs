@@ -67,6 +67,7 @@ namespace PirateWars
         {
             Button currentButton = sender as Button;
             DisableCurrentButton(currentButton);
+            controller.UpdatePrices();
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Tortuga.";
             lblPortsTradingGoods.Text = "Tortugas Trading Goods";
@@ -81,6 +82,7 @@ namespace PirateWars
         {
             Button currentButton = sender as Button;
             DisableCurrentButton(currentButton);
+            controller.UpdatePrices();
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Black Water Bay.";
             lblPortsTradingGoods.Text = "Black Water Bay Trading Goods";
@@ -95,6 +97,7 @@ namespace PirateWars
         {
             Button currentButton = sender as Button;
             DisableCurrentButton(currentButton);
+            controller.UpdatePrices();
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Providence.";
             lblPortsTradingGoods.Text = "Providence Trading Goods";
@@ -109,6 +112,7 @@ namespace PirateWars
         {
             Button currentButton = sender as Button;
             DisableCurrentButton(currentButton);
+            controller.UpdatePrices();
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Isla de Muerta.";
             lblPortsTradingGoods.Text = "Isla de Muerta Trading Goods";
@@ -123,6 +127,7 @@ namespace PirateWars
         {
             Button currentButton = sender as Button;
             DisableCurrentButton(currentButton);
+            controller.UpdatePrices();
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Shipwreck Cove.";
             lblPortsTradingGoods.Text = "Shipwreck Cove Trading Goods";
@@ -137,6 +142,7 @@ namespace PirateWars
         {
             Button currentButton = sender as Button;
             DisableCurrentButton(currentButton);
+            controller.UpdatePrices();
             dataGridViewPort.Rows.Clear();
             lblPlayerName.Text = "Welcome " + pirateName + ", to Free Port.";
             lblPortsTradingGoods.Text = "Free Port Trading Goods";
