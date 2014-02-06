@@ -22,24 +22,6 @@ namespace PirateWars
         public Port(string port, SetPrice setPrice)
         {
             portName = port;
-<<<<<<< HEAD
-=======
-            bullet.Amount = 100;
-            rum.Amount = 100;
-            tobacco.Amount = 100;
-            spices.Amount = 100;
-            cloth.Amount = 100;
-            gunpowder.Amount = 100;
-            pearl.Amount = 100;
-            
-            bullet.Price = 5;
-            rum.Price = 3;
-            tobacco.Price = 2;
-            spices.Price = 1;
-            cloth.Price = 1;
-            gunpowder.Price = 2;
-            pearl.Price = 5;
->>>>>>> remotes/origin/JohanTest
 
             portsCargoList.Add(bullet);
             portsCargoList.Add(rum);
@@ -51,7 +33,7 @@ namespace PirateWars
 
             foreach (Cargo cargo in portsCargoList)
             {
-                cargo.price = setPrice.initialPrice(cargo.name);
+                cargo.Price = setPrice.initialPrice(cargo.Name);
             }
         }
 
