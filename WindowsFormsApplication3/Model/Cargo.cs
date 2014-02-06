@@ -44,6 +44,12 @@ namespace PirateWars
             set { price = value; }
         }
 
+        public bool PriceDirectionUp
+        {
+            get { return priceDirectionUp; }
+            set { priceDirectionUp = value; }
+        }
+
         /// <summary>
         /// Increases the cargo amount by 1.
         /// </summary>

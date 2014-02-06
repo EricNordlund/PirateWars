@@ -137,7 +137,7 @@ namespace PirateWars
                 List<Cargo> cargoList = port.GetPortsCargoList();
                 foreach (Cargo cargo in cargoList)
                 {
-                    cargo.Price = setPrice.PriceChangeMove(cargo.Price, true);
+                    cargo.Price = setPrice.PriceChangeMove(cargo.Price, cargo.PriceDirectionUp);
                 }
             }
         }

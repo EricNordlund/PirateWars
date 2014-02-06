@@ -7,16 +7,16 @@ namespace PirateWars
         private Random rand = new Random();
 
         //Price configuration
-        private int priceDirectionChance = 80;
+        private int priceDirectionChance = 80; //20% chance of a pricechange
         private int priceChangeMinimumPercentage = 5;
         private int priceChangeMaximumPercentage = 10;
-        private int initialCargoPriceSpices = 100;
-        private int initialCargoPriceBullets = 90;
-        private int initialCargoPriceRum = 80;
-        private int initialCargoPriceTobacco = 70;
-        private int initialCargoPriceCloth = 60;
-        private int initialCargoPriceGunPowder = 50;
-        private int initialCargoPricePearls = 40;
+        private int initialCargoPriceSpices = 1000;
+        private int initialCargoPriceBullets = 900;
+        private int initialCargoPriceRum = 800;
+        private int initialCargoPriceTobacco = 700;
+        private int initialCargoPriceCloth = 600;
+        private int initialCargoPriceGunPowder = 500;
+        private int initialCargoPricePearls = 400;
 
         
         /**
