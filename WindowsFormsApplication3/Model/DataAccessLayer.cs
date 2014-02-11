@@ -2,58 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace PirateWars
 {
     class DataAccessLayer
     {
-        MySqlConnection connection;
-        
-     public DataAccessLayer()
+        public DataAccessLayer()
         {
-            
-            string user = "pirate";
-            string passw = "PomPom876";
-            string url = "alfa.epitet.net";
-            string dbName = "PirateWars";
-
-            string connectionString = @"server="+url+";database="+dbName+";userid="+user+";password="+passw+";";
-
-             connection = new MySqlConnection(connectionString);
-
+            String connectionString = "Data Source=FREDRIK-PC;Initial Catalog=PirateWars;Integrated Security=True";
+ 
+            SqlConnection connection = new SqlConnection(connectionString);
             try
             {
                 connection.Open();
-                GetPlayerInfo("noob");
+                Console.WriteLine("Connection opened");
+                SqlCommand cmd = connection.CreateCommand();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
-            
-            Console.Out.WriteLine("Connection opened");
-        }
-
-     public MySqlDataReader GetPlayerInfo(string name)
-     {
-        MySqlCommand cmd;
-        cmd = new MySqlCommand("SELECT * FROM player where player.name = '@val1'", connection);
-        cmd.Parameters.AddWithValue("@val1", name);
-        cmd.Prepare();
-        MySqlDataReader res = cmd.ExecuteReader();
-        if (!res.HasRows) 
-        { 
-            Console.WriteLine("Error! "); 
-            res.Close();
-            return res; 
-        }
-        else
-        {
-            //do something
-        }
-        res.Close();
-        return res;
+ 
         }
     }
 }

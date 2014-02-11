@@ -9,13 +9,13 @@ namespace PirateWars
     {
         private string portName;
         
-        Cargo bullet = new Cargo("Bullets");
+        Cargo bullet = new Cargo("Bullet");
         Cargo rum = new Cargo("Rum");
         Cargo tobacco = new Cargo("Tobacco");
         Cargo spices = new Cargo("Spices");
         Cargo cloth = new Cargo("Cloth");
         Cargo gunpowder = new Cargo("Gunpowder");
-        Cargo pearl = new Cargo("Pearls");
+        Cargo pearl = new Cargo("Pearl");
 
         private List<Cargo> portsCargoList = new List<Cargo>();
 

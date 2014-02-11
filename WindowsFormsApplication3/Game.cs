@@ -116,9 +116,53 @@ namespace PirateWars
             if (playerCargo.Amount > 0)
             {
                 playerCargo.DecreaseAmount();
-                portCargo.IncreaseAmount();
 
                 player.IncreaseGold(portCargo.Price);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool SellCargoToPortAll(String cargoName)
+        {
+            Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.Name == cargoName);
+            Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.Name == cargoName);
+
+            // check if the player has this cargo
+            if (playerCargo.Amount > 0)
+            {
+                while (playerCargo.Amount > 0)
+                {
+                    playerCargo.DecreaseAmount();
+
+                    player.IncreaseGold(portCargo.Price);
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool PurchaseCargoFromPortAll(String cargoName)
+        {
+            Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.Name == cargoName);
+            Cargo portCargo = port.GetPortsCargoList().Find(cargo => cargo.Name == cargoName);
+
+            // check if the player has enough gold
+            if (player.Gold >= portCargo.Price)
+            {
+                while (player.Gold >= portCargo.Price)
+                {
+                    playerCargo.IncreaseAmount();
+                    portCargo.DecreaseAmount();
+
+                    player.DecreaseGold(portCargo.Price);
+                }
                 return true;
             }
             else

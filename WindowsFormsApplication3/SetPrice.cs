@@ -61,7 +61,7 @@ namespace PirateWars
             {
                 case "Spices":
                     return initialCargoPriceSpices;
-                case "Bullets":
+                case "Bullet":
                     return initialCargoPriceBullets;
                 case "Rum":
                     return initialCargoPriceRum;
@@ -71,7 +71,7 @@ namespace PirateWars
                     return initialCargoPriceCloth;
                 case "Gunpowder":
                     return initialCargoPriceGunPowder;
-                case "Pearls":
+                case "Pearl":
                     return initialCargoPricePearls;
                 default:
                     return 0;
