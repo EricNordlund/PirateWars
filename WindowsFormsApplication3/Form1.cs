@@ -206,6 +206,10 @@ namespace PirateWars
                 {
                     errorLabel.Text = eh.HandleException("NoGold");
                 }
+                else
+                {
+                    errorLabel.Text = "";
+                }
                 // update the view
                 UpdateView();
             }
@@ -218,16 +222,19 @@ namespace PirateWars
 
         //sell
         private void button5_Click(object sender, EventArgs e)
-        {
-            // get the selected row from the player gridview and remember the name of the cargo
-            String selectedCargoName = dataGridViewInventory.CurrentRow.Cells[0].Value as string;
-
+        {       
             // sell the cargo to the current port
             try
             {
+                String selectedCargoName = dataGridViewInventory.CurrentRow.Cells[0].Value as string;
+
                 if (controller.GetGame().SellCargoToPort(selectedCargoName).Equals(false))
                 {
                     errorLabel.Text = eh.HandleException("DecreaseAmountPlayer");
+                }
+                else
+                {
+                    errorLabel.Text = "";
                 }
             // update the view
             UpdateView();
@@ -252,6 +259,11 @@ namespace PirateWars
             port5.Enabled = true;
             port6.Enabled = true;
             sender.Enabled = false;
+
+            if (errorLabel.Text == eh.HandleException("SelectPort"))
+            {
+                errorLabel.Text = "";
+            }
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -262,6 +274,53 @@ namespace PirateWars
         private void label1_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        //buyall
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String selectedCargoName = dataGridViewPort.CurrentRow.Cells[0].Value as string;
+
+                if (controller.GetGame().PurchaseCargoFromPortAll(selectedCargoName).Equals(false))
+                {
+                    errorLabel.Text = eh.HandleException("NoGold");
+                }
+                else
+                {
+                    errorLabel.Text = "";
+                }
+                // update the view
+                UpdateView();
+            }
+            catch (Exception er)
+            {
+                errorLabel.Text = eh.HandleException("SelectPort");
+            }
+        }
+        //sellall
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String selectedCargoName = dataGridViewInventory.CurrentRow.Cells[0].Value as string;
+
+                if (controller.GetGame().SellCargoToPortAll(selectedCargoName).Equals(false))
+                {
+                    errorLabel.Text = eh.HandleException("DecreaseAmountPlayer");
+                }
+                else
+                {
+                    errorLabel.Text = "";
+                }
+                // update the view
+                UpdateView();
+            }
+            catch (Exception er)
+            {
+                errorLabel.Text = eh.HandleException("SelectPort");
+            }
         }
     }
 }
