@@ -48,5 +48,10 @@ namespace PirateWars
         {
             game.UpdatePrices();
         }
+
+        public void SaveGameState()                                                                                                                                                                                               
+        {
+            dal.saveGameState(game.PortList);
+        }
     }
 }

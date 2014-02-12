@@ -75,6 +75,7 @@ namespace PirateWars
             {
                 dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
+            
             EndTurn();
         }
 

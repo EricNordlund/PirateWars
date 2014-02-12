@@ -185,6 +185,13 @@ namespace PirateWars
                 }
             }
         }
+
+        public List<Port> PortList
+        {
+            get { return portList; }
+        }
+
+        
         
     }
 }
