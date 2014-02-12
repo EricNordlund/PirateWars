@@ -62,10 +62,22 @@ namespace PirateWars
             SendData(queryPlayer); 
         }
 
-        public void saveHighScore(Player player)
+        public void SaveHighScore(Player player)
         {
             string query = "INSERT INTO highscore (pName, pGold) VALUES ('" + player.PlayerName + "', '" + player.Gold + "')";
             SendData(query);
+        }
+
+        public SqlDataReader NameCheck(string name)
+        {
+            string query = "SELECT pName FROM name WHERE pName = '" + name + "'";
+            return GetData(query);
+        }
+
+        public SqlDataReader LoadGameState(string name)
+        {
+            string query = "SELECT * FROM player WHERE = pName = '" + name + "' UNION SELECT * FROM port WHERE pName = '" + name + "'";
+            return GetData(query);
         }
 
     }

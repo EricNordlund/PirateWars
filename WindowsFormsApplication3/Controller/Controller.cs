@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace PirateWars
 {
@@ -56,7 +57,17 @@ namespace PirateWars
 
         public void SaveHighScore()
         {
-            dal.saveHighScore(game.Player);
+            dal.SaveHighScore(game.Player);
+        }
+
+        public SqlDataReader NameCheck(string name)
+        {
+            return dal.NameCheck(name);
+        }
+
+        public SqlDataReader LoadGameState(string name)
+        {
+            return dal.LoadGameState(name);
         }
     }
 }
