@@ -157,7 +157,7 @@ namespace PirateWars
         private void UpdateView()
         {
 
-            Player player = controller.GetGame().GetPlayer();
+            Player player = controller.GetGame().Player;
             Port port = controller.GetGame().GetCurrentPort();
 
             lblPlayerName.Text = "Welcome " + pirateName + ", to " + port.GetPortName() + ".";

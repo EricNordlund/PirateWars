@@ -44,10 +44,6 @@ namespace PirateWars
             Console.WriteLine("Game over man, game over! Här ska det väl vara någon slags databas insert med highscore");
         }
 
-        public Player GetPlayer()
-        {
-            return player;
-        }
 
         public Port GetPort(string portName)
         {
@@ -189,6 +185,11 @@ namespace PirateWars
         public List<Port> PortList
         {
             get { return portList; }
+        }
+
+        public Player Player
+        {
+            get { return player; }
         }
 
         

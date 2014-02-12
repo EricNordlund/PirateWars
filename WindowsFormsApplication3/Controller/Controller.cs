@@ -31,12 +31,12 @@ namespace PirateWars
 
         public int GetPlayerStartingGold()
         {
-            return game.GetPlayer().Gold;
+            return game.Player.Gold;
         }
 
         public List<Cargo> GetPlayersCargoList()
         {
-            return game.GetPlayer().GetPlayersCargoList();
+            return game.Player.GetPlayersCargoList();
         }
 
         public List<Cargo> GetPortsCargoList(string portName)
@@ -51,7 +51,12 @@ namespace PirateWars
 
         public void SaveGameState()                                                                                                                                                                                               
         {
-            dal.saveGameState(game.PortList);
+            dal.SaveGameState(game.PortList, game.Player);
+        }
+
+        public void SaveHighScore()
+        {
+            dal.saveHighScore(game.Player);
         }
     }
 }

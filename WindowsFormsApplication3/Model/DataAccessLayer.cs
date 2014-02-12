@@ -7,11 +7,11 @@ namespace PirateWars
 {
     class DataAccessLayer
     {
-        private SqlConnection connection;
+        public SqlConnection connection;
 
         public DataAccessLayer()
         {
-            String connectionString = "user id=name;" +
+            string connectionString = "user id=name;" +
                                       "password=pw;" +
                                       "server=localhost;" +
                                       "database=PirateWars;";
@@ -19,7 +19,7 @@ namespace PirateWars
             this.connection = new SqlConnection(connectionString);
             try
             {
-                //connection.Open();
+                connection.Open();
             }
             catch (Exception e)
             {
@@ -28,7 +28,7 @@ namespace PirateWars
 
         }
 
-        public SqlDataReader getData(String query)
+        public SqlDataReader GetData(string query)
         {
             SqlCommand com = new SqlCommand(query, connection);
             SqlDataReader dr = null;
@@ -38,18 +38,34 @@ namespace PirateWars
 
         }
 
-        public void sendData(String query)
-        {
+        public void SendData(string query)
+        { 
             SqlCommand com = new SqlCommand(query, connection);
             com.ExecuteNonQuery();
         }
 
-        public void saveGameState(List<Port> portList)
+        public void SaveGameState(List<Port> portList, Player player)
         {
+            string queryPort = "INSERT INTO port VALUES (";
+            string queryPlayer = "INSERT INTO player VALUES (";
+
             foreach (Port port in portList)
             {
-                Trace.WriteLine("Test");
+                queryPort = queryPort + "'" + port.GetPortName() + "',";
             }
+
+            foreach (Cargo cargo in player.GetPlayersCargoList())
+            {
+                queryPlayer = queryPlayer + "'" + cargo.Amount + "',";
+            }
+            SendData(queryPort);
+            SendData(queryPlayer); 
+        }
+
+        public void saveHighScore(Player player)
+        {
+            string query = "INSERT INTO highscore (pName, pGold) VALUES ('" + player.PlayerName + "', '" + player.Gold + "')";
+            SendData(query);
         }
 
     }
