@@ -60,14 +60,25 @@ namespace PirateWars
             dal.SaveHighScore(game.Player);
         }
 
-        public SqlDataReader NameCheck(string name)
+        public Boolean NameCheck(string name)
         {
-            return dal.NameCheck(name);
+            SqlDataReader result = dal.NameCheck(name);
+            if (result == null)
+            {
+                return false;
+            }
+            else
+            {
+                result.Read();
+                game.LoadGameState(LoadGameState(name));
+                return true;
+            }
         }
 
         public SqlDataReader LoadGameState(string name)
         {
             return dal.LoadGameState(name);
         }
+
     }
 }

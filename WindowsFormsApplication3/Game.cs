@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace PirateWars
 {
@@ -193,6 +194,11 @@ namespace PirateWars
         }
 
         
+        public void LoadGameState(SqlDataReader result)
+        {
+             //Här skall alla objekt ändras! :D
+        }
+
         
     }
 }
