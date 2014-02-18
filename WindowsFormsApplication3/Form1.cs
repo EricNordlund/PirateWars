@@ -76,17 +76,6 @@ namespace PirateWars
         private void port2_Click(object sender, EventArgs e)
         {
 
-            Button currentButton = sender as Button;
-            DisableCurrentButton(currentButton);
-            controller.UpdatePrices();
-            dataGridViewPort.Rows.Clear();
-            lblPlayerName.Text = "Welcome " + pirateName + ", to Black Water Bay.";
-            lblPortsTradingGoods.Text = "Black Water Bay Trading Goods";
-            foreach (Cargo cargo in controller.GetPortsCargoList("Black Water Bay"))
-            {
-                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
-            }
-            EndTurn();
             updatePort(sender);
         }
 
@@ -201,8 +190,8 @@ namespace PirateWars
                 else
                 {
                     errorLabel.Text = "";
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"goldDrop.wav");
-                    player.Play();
+                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"goldDrop.wav");
+                    //player.Play();
                 }
                 // update the view
                 UpdateView();
@@ -229,8 +218,8 @@ namespace PirateWars
                 else
                 {
                     errorLabel.Text = "";
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
-                    player.Play();
+                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
+                    //player.Play();
                 }
             // update the view
             UpdateView();
@@ -310,8 +299,8 @@ namespace PirateWars
                 else
                 {
                     errorLabel.Text = "";
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
-                    player.Play();
+                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
+                    //player.Play();
                 }
                 // update the view
                 UpdateView();

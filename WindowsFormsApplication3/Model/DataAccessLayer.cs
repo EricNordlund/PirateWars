@@ -13,9 +13,9 @@ namespace PirateWars
 
         public DataAccessLayer()
         {
-            String user = "root";
-            String passw = "";
-            String url = "localhost";
+            String user = "pirate";
+            String passw = "PomPom876";
+            String url = "192.168.0.99";
             String dbName = "PirateWars";
 
             String connectionString = @"server=" + url + ";database=" + dbName + ";userid=" + user + ";password=" + passw + ";";
@@ -60,7 +60,7 @@ namespace PirateWars
 
             foreach (Port port in portList)
             {
-                string queryPort = string.Format("INSERT INTO port VALUES ('{0}', '{1}',", port.GetPortName(), player.PlayerName);
+                string queryPort = string.Format("INSERT INTO port VALUES ('{0}', '{1}',", player.PlayerName, port.GetPortName());
                 
                 foreach (Cargo cargo in port.GetPortsCargoList())
                 {
@@ -82,7 +82,8 @@ namespace PirateWars
 
             
            
-           SendData(queryPlayer); 
+            SendData(queryPlayer); 
+            
             
         }
 
