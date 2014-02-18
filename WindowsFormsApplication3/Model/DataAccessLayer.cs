@@ -2,64 +2,86 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using MySql.Data.MySqlClient;
+ 
 
 namespace PirateWars
 {
     class DataAccessLayer
     {
-        public SqlConnection connection;
+        public MySqlConnection connection;
 
         public DataAccessLayer()
         {
-            string connectionString = "user id=name;" +
-                                      "password=pw;" +
-                                      "server=localhost;" +
-                                      "database=PirateWars;";
+            String user = "root";
+            String passw = "";
+            String url = "localhost";
+            String dbName = "PirateWars";
 
-            this.connection = new SqlConnection(connectionString);
+            String connectionString = @"server=" + url + ";database=" + dbName + ";userid=" + user + ";password=" + passw + ";";
+
+           connection = new MySqlConnection(connectionString);
+           
             try
             {
                 connection.Open();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Debug.Write("FEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEL!");
             }
+ 
 
         }
 
         public SqlDataReader GetData(string query)
         {
-            SqlCommand com = new SqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, connection);
             SqlDataReader dr = null;
-            dr = com.ExecuteReader();
 
             return dr;
-
+            
         }
 
         public void SendData(string query)
         { 
-            SqlCommand com = new SqlCommand(query, connection);
-            com.ExecuteNonQuery();
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
         }
 
         public void SaveGameState(List<Port> portList, Player player)
-        {
-            string queryPort = "INSERT INTO port VALUES (";
-            string queryPlayer = "INSERT INTO player VALUES (";
+        {   
+            string test = player.PlayerName;
+            
+            string queryPlayer = string.Format("INSERT INTO player VALUES ( '{0}', '{1}', ", player.PlayerName, player.Gold);
+            
 
             foreach (Port port in portList)
             {
-                queryPort = queryPort + "'" + port.GetPortName() + "',";
+                string queryPort = string.Format("INSERT INTO port VALUES ('{0}', '{1}',", port.GetPortName(), player.PlayerName);
+                
+                foreach (Cargo cargo in port.GetPortsCargoList())
+                {
+                    queryPort += string.Format(" '{0}',", cargo.Price);   
+                }
+
+                queryPort = queryPort.Remove(queryPort.Length - 1);
+                queryPort += ")";
+                SendData(queryPort);
             }
+            
 
             foreach (Cargo cargo in player.GetPlayersCargoList())
             {
-                queryPlayer = queryPlayer + "'" + cargo.Amount + "',";
+                queryPlayer += "'" + cargo.Amount + "',";
             }
-            SendData(queryPort);
-            SendData(queryPlayer); 
+            queryPlayer = queryPlayer.Remove(queryPlayer.Length - 1);
+            queryPlayer += ")";
+
+            
+           
+           SendData(queryPlayer); 
+            
         }
 
         public void SaveHighScore(Player player)

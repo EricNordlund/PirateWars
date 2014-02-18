@@ -323,5 +323,10 @@ namespace PirateWars
                 errorLabel.Text = eh.HandleException("SelectPort");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            controller.SaveGameState();
+        }
     }
 }
