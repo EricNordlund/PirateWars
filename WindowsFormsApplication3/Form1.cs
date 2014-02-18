@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +16,8 @@ namespace PirateWars
         string pirateName;
         Controller controller;
         ExceptionHandler eh = new ExceptionHandler();
+        int cellIndex;
+        int rowIndex;
         
         public Form1(ref Controller controller)
         {
@@ -67,22 +69,13 @@ namespace PirateWars
 
         private void port1_Click(object sender, EventArgs e)
         {
-            Button currentButton = sender as Button;
-            DisableCurrentButton(currentButton);
-            controller.UpdatePrices();
-            dataGridViewPort.Rows.Clear();
-            lblPlayerName.Text = "Welcome " + pirateName + ", to Tortuga.";
-            lblPortsTradingGoods.Text = "Tortugas Trading Goods";
-            foreach (Cargo cargo in controller.GetPortsCargoList("Tortuga"))
-            {
-                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
-            }
-            
-            EndTurn();
+
+            updatePort(sender);
         }
 
         private void port2_Click(object sender, EventArgs e)
         {
+
             Button currentButton = sender as Button;
             DisableCurrentButton(currentButton);
             controller.UpdatePrices();
@@ -94,70 +87,36 @@ namespace PirateWars
                 dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
             EndTurn();
+            updatePort(sender);
         }
 
         private void port3_Click(object sender, EventArgs e)
         {
-            Button currentButton = sender as Button;
-            DisableCurrentButton(currentButton);
-            controller.UpdatePrices();
-            dataGridViewPort.Rows.Clear();
-            lblPlayerName.Text = "Welcome " + pirateName + ", to Providence.";
-            lblPortsTradingGoods.Text = "Providence Trading Goods";
-            foreach (Cargo cargo in controller.GetPortsCargoList("Providence"))
-            {
-                dataGridViewPort.Rows.Add(cargo.Name,cargo.Price);
-            }
-            EndTurn();
+
+            updatePort(sender);
         }
 
         private void port4_Click(object sender, EventArgs e)
         {
-            Button currentButton = sender as Button;
-            DisableCurrentButton(currentButton);
-            controller.UpdatePrices();
-            dataGridViewPort.Rows.Clear();
-            lblPlayerName.Text = "Welcome " + pirateName + ", to Isla de Muerta.";
-            lblPortsTradingGoods.Text = "Isla de Muerta Trading Goods";
-            foreach (Cargo cargo in controller.GetPortsCargoList("Isla de Muerta"))
-            {
-                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
-            }
-            EndTurn();
+
+            updatePort(sender);
         }
 
         private void port5_Click(object sender, EventArgs e)
         {
-            Button currentButton = sender as Button;
-            DisableCurrentButton(currentButton);
-            controller.UpdatePrices();
-            dataGridViewPort.Rows.Clear();
-            lblPlayerName.Text = "Welcome " + pirateName + ", to Shipwreck Cove.";
-            lblPortsTradingGoods.Text = "Shipwreck Cove Trading Goods";
-            foreach (Cargo cargo in controller.GetPortsCargoList("Shipwreck Cove"))
-            {
-                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
-            }
-            EndTurn();
+
+            updatePort(sender);
         }
 
         private void port6_Click(object sender, EventArgs e)
         {
-            Button currentButton = sender as Button;
-            DisableCurrentButton(currentButton);
-            controller.UpdatePrices();
-            dataGridViewPort.Rows.Clear();
-            lblPlayerName.Text = "Welcome " + pirateName + ", to Free Port.";
-            lblPortsTradingGoods.Text = "Free Port Trading Goods";
-            foreach (Cargo cargo in controller.GetPortsCargoList("Free Port"))
-            {
-                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
-            }
-            EndTurn();
+
+            updatePort(sender);
         }
 
         private void UpdateView()
         {
+
 
             Player player = controller.GetGame().Player;
             Port port = controller.GetGame().GetCurrentPort();
@@ -194,7 +153,37 @@ namespace PirateWars
             // reselect the right cell
             dataGridViewInventory.CurrentCell = dataGridViewInventory.Rows[rowIndex].Cells[cellIndex];
         }
-        
+
+
+        private void updatePort(object objSender)
+        {
+            Button sender = objSender as Button;
+            DisableCurrentButton(sender);
+            controller.UpdatePrices();
+            try
+            {
+                rowIndex = dataGridViewPort.CurrentCell.RowIndex;
+                cellIndex = dataGridViewPort.CurrentCell.ColumnIndex;
+            }
+            catch (Exception e)
+            {
+                //GÖR INTE ETT PISS
+            }
+
+            dataGridViewPort.Rows.Clear();
+
+            lblPlayerName.Text = "Welcome " + pirateName + ", to " + sender.Text + ".";
+            lblPortsTradingGoods.Text = sender.Text + "'s Trading Goods";
+
+            foreach (Cargo cargo in controller.GetPortsCargoList(sender.Text))
+            {
+                dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
+            }
+            
+            dataGridViewPort.CurrentCell = dataGridViewPort.Rows[rowIndex].Cells[cellIndex];
+
+            EndTurn();
+        }
 
         //purchase
         private void button6_Click(object sender, EventArgs e)
@@ -212,6 +201,8 @@ namespace PirateWars
                 else
                 {
                     errorLabel.Text = "";
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"goldDrop.wav");
+                    player.Play();
                 }
                 // update the view
                 UpdateView();
@@ -238,6 +229,8 @@ namespace PirateWars
                 else
                 {
                     errorLabel.Text = "";
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
+                    player.Play();
                 }
             // update the view
             UpdateView();
@@ -262,6 +255,7 @@ namespace PirateWars
             port5.Enabled = true;
             port6.Enabled = true;
             sender.Enabled = false;
+
 
             if (errorLabel.Text == eh.HandleException("SelectPort"))
             {
@@ -316,6 +310,8 @@ namespace PirateWars
                 else
                 {
                     errorLabel.Text = "";
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
+                    player.Play();
                 }
                 // update the view
                 UpdateView();
