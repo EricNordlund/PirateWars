@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace PirateWars
 {
@@ -11,6 +11,7 @@ namespace PirateWars
     {
         DataAccessLayer dal;
         Game game;
+        Player player;
         ExceptionHandler exceptionHandler = new ExceptionHandler();
 
         public Controller(ref DataAccessLayer dal, ref Game game)
@@ -62,7 +63,7 @@ namespace PirateWars
 
         public Boolean NameCheck(string name)
         {
-            SqlDataReader result = dal.NameCheck(name);
+            MySqlDataReader result = dal.NameCheck(name);
             if (result == null)
             {
                 return false;
@@ -70,14 +71,15 @@ namespace PirateWars
             else
             {
                 result.Read();
-                game.LoadGameState(LoadGameState(name));
+                LoadGameState();
                 return true;
             }
         }
 
-        public SqlDataReader LoadGameState(string name)
+        public void LoadGameState()
         {
-            return dal.LoadGameState(name);
+            MySqlDataReader dr = dal.LoadGameState(game.getPlayerName());
+            game.LoadGameState(dr);
         }
 
     }

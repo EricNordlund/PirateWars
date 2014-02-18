@@ -34,10 +34,10 @@ namespace PirateWars
 
         }
 
-        public SqlDataReader GetData(string query)
+        public MySqlDataReader GetData(string query)
         {
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            SqlDataReader dr = null;
+            MySqlDataReader dr = cmd.ExecuteReader();
 
             return dr;
             
@@ -50,8 +50,10 @@ namespace PirateWars
         }
 
         public void SaveGameState(List<Port> portList, Player player)
-        {   
-            string test = player.PlayerName;
+        {
+
+            string deleteQuery = string.Format("DELETE FROM player WHERE playerName = '{0}'; DELETE FROM port WHERE playerName = '{0}'", player.PlayerName);
+            SendData(deleteQuery);
             
             string queryPlayer = string.Format("INSERT INTO player VALUES ( '{0}', '{1}', ", player.PlayerName, player.Gold);
             
@@ -90,16 +92,16 @@ namespace PirateWars
             SendData(query);
         }
 
-        public SqlDataReader NameCheck(string name)
+        public MySqlDataReader NameCheck(string name)
         {
             string query = "SELECT pName FROM name WHERE pName = '" + name + "'";
             return GetData(query);
         }
 
-        public SqlDataReader LoadGameState(string name)
+        public MySqlDataReader LoadGameState(string name)
         {
-            string query = "SELECT * FROM player WHERE = pName = '" + name + "' UNION SELECT * FROM port WHERE pName = '" + name + "'";
-            return GetData(query);
+            string query = string.Format("SELECT * FROM player pl JOIN port po ON pl.playerName = po.playerName AND pl.playerName = '{0}'", name);
+            return (GetData(query));
         }
 
     }
