@@ -12,6 +12,7 @@ namespace PirateWars
         DataAccessLayer dal;
         Game game;
         Player player;
+        Form1 view;
         ExceptionHandler exceptionHandler = new ExceptionHandler();
 
         public Controller(ref DataAccessLayer dal, ref Game game)
@@ -20,6 +21,10 @@ namespace PirateWars
             this.game = game;
         }
 
+        public void SetView(Form1 view)
+        {
+            this.view = view;
+        }
 
         public Game GetGame()
         {
@@ -79,6 +84,7 @@ namespace PirateWars
         {
             MySqlDataReader dr = dal.LoadGameState(game.getPlayerName());
             game.LoadGameState(dr);
+            
         }
 
     }

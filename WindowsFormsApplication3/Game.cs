@@ -223,6 +223,7 @@ namespace PirateWars
             }
             
             result.Close();
+            
         }
 
         

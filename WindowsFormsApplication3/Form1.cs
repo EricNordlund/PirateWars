@@ -45,6 +45,8 @@ namespace PirateWars
             {
                 dataGridViewInventory.Rows.Add(cargo.Name, cargo.Amount);
             }
+
+            controller.SetView(this);
         }
         
         private void label1_Click(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace PirateWars
         }
 
 
-        private void updatePort(object objSender)
+        public void updatePort(object objSender)
         {
             Button sender = objSender as Button;
             DisableCurrentButton(sender);
