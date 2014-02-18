@@ -32,7 +32,9 @@ namespace PirateWars
 
                 lblPlayerName.Text = pirateName;
                 
+                
             }
+            
             this.playerGold.Text = controller.GetPlayerStartingGold() +" Golden Coins";
 
             
