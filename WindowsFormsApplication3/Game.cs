@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace PirateWars
 {
@@ -44,10 +47,6 @@ namespace PirateWars
             Console.WriteLine("Game over man, game over! Här ska det väl vara någon slags databas insert med highscore");
         }
 
-        public Player GetPlayer()
-        {
-            return player;
-        }
 
         public Port GetPort(string portName)
         {
@@ -66,6 +65,11 @@ namespace PirateWars
         public void SetPlayerName(string pirateName)
         {
             player = new Player(pirateName);
+        }
+
+        public string getPlayerName()
+        {
+            return player.PlayerName;
         }
 
         /// <summary>
@@ -185,6 +189,42 @@ namespace PirateWars
                 }
             }
         }
+
+        public List<Port> PortList
+        {
+            get { return portList; }
+        }
+
+        public Player Player
+        {
+            get { return player; }
+        }
+
+        
+        public void LoadGameState(MySqlDataReader result)
+        {
+            result.Read();
+            List<Cargo> clist = player.GetPlayersCargoList();
+            int i = 2;
+            foreach (Cargo cargo in player.GetPlayersCargoList())
+            {
+                cargo.Amount = result.GetInt32(i);
+                i++;
+            }
+
+            foreach (Port port in portList)
+            {
+                i=11;
+                foreach (Cargo cargo in port.GetPortsCargoList())
+                {
+                    cargo.Price = result.GetInt32(i);
+                    i++;
+                }
+            }
+            
+            result.Close();
+        }
+
         
     }
 }

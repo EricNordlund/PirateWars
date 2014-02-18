@@ -32,7 +32,9 @@ namespace PirateWars
 
                 lblPlayerName.Text = pirateName;
                 
+                
             }
+            
             this.playerGold.Text = controller.GetPlayerStartingGold() +" Golden Coins";
 
             
@@ -75,6 +77,7 @@ namespace PirateWars
             {
                 dataGridViewPort.Rows.Add(cargo.Name, cargo.Price);
             }
+            
             EndTurn();
         }
 
@@ -156,7 +159,7 @@ namespace PirateWars
         private void UpdateView()
         {
 
-            Player player = controller.GetGame().GetPlayer();
+            Player player = controller.GetGame().Player;
             Port port = controller.GetGame().GetCurrentPort();
 
             lblPlayerName.Text = "Welcome " + pirateName + ", to " + port.GetPortName() + ".";
@@ -321,6 +324,16 @@ namespace PirateWars
             {
                 errorLabel.Text = eh.HandleException("SelectPort");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            controller.SaveGameState();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            controller.LoadGameState();
         }
     }
 }

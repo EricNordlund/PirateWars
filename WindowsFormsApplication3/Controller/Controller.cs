@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace PirateWars
 {
@@ -10,6 +11,7 @@ namespace PirateWars
     {
         DataAccessLayer dal;
         Game game;
+        Player player;
         ExceptionHandler exceptionHandler = new ExceptionHandler();
 
         public Controller(ref DataAccessLayer dal, ref Game game)
@@ -31,12 +33,12 @@ namespace PirateWars
 
         public int GetPlayerStartingGold()
         {
-            return game.GetPlayer().Gold;
+            return game.Player.Gold;
         }
 
         public List<Cargo> GetPlayersCargoList()
         {
-            return game.GetPlayer().GetPlayersCargoList();
+            return game.Player.GetPlayersCargoList();
         }
 
         public List<Cargo> GetPortsCargoList(string portName)
@@ -48,5 +50,36 @@ namespace PirateWars
         {
             game.UpdatePrices();
         }
+
+        public void SaveGameState()                                                                                                                                                                                               
+        {
+            dal.SaveGameState(game.PortList, game.Player);
+        }
+
+        public void SaveHighScore()
+        {
+            dal.SaveHighScore(game.Player);
+        }
+
+        public void NameCheck(string name)
+        {
+            MySqlDataReader result = dal.NameCheck(name);
+            if (result == null)
+            {
+                
+            }
+            else
+            {
+                //LoadGameState();
+                
+            }
+        }
+
+        public void LoadGameState()
+        {
+            MySqlDataReader dr = dal.LoadGameState(game.getPlayerName());
+            game.LoadGameState(dr);
+        }
+
     }
 }
