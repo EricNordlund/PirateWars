@@ -278,7 +278,7 @@
             // 
             this.labelTimer.AutoSize = true;
             this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.labelTimer.Location = new System.Drawing.Point(95, 72);
+            this.labelTimer.Location = new System.Drawing.Point(85, 72);
             this.labelTimer.Name = "labelTimer";
             this.labelTimer.Size = new System.Drawing.Size(27, 20);
             this.labelTimer.TabIndex = 19;
