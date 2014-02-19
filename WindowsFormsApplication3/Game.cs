@@ -13,7 +13,9 @@ namespace PirateWars
         private Port port;
         private List<Port> portList = new List<Port>();
         private Player player;
-        //private int turn = 30;
+        private int turn = 30;
+
+       
         private SetPrice setPrice = new SetPrice();
         private Cargo playerCargo;
         private Cargo portCargo;
@@ -34,8 +36,7 @@ namespace PirateWars
             portList.Add(islaDeMuerta);
         }
 
-        // Turn-mode disabled
-       /* public String EndTurn()
+        public String EndTurn()
         {
             turn--;
             if (turn == 0)
@@ -45,11 +46,16 @@ namespace PirateWars
             return turn.ToString();
         }
 
+        public int Turn
+        {
+            get { return turn; }
+            set { turn = value; }
+        }
+
         public void GameOver()
         {
             Console.WriteLine("Game over man, game over! Här ska det väl vara någon slags databas insert med highscore");
         }
-        */
 
         public Port GetPort(string portName)
         {
@@ -217,8 +223,11 @@ namespace PirateWars
         public void LoadGameState(MySqlDataReader result)
         {
             result.Read();
+
+            player.Gold = result.GetInt32(1);
+            this.turn = result.GetInt32(2);
             List<Cargo> clist = player.GetPlayersCargoList();
-            int i = 2;
+            int i = 3;
             foreach (Cargo cargo in player.GetPlayersCargoList())
             {
                 cargo.Amount = result.GetInt32(i);
@@ -227,14 +236,18 @@ namespace PirateWars
 
             foreach (Port port in portList)
             {
-                i=11;
+                i=12;
                 foreach (Cargo cargo in port.GetPortsCargoList())
                 {
                     cargo.Price = result.GetInt32(i);
                     i++;
                 }
             }
-            result.Close();
-        }   
+            
+            result.Dispose();
+            
+        }
+
+        
     }
 }

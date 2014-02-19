@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace PirateWars
 {
@@ -58,7 +59,7 @@ namespace PirateWars
        
         public void SaveGameState()                                                                                                                                                                                               
         {
-            dal.SaveGameState(game.PortList, game.Player);
+            dal.SaveGameState(game.PortList, game.Player, game);
         }
 
         public void SaveHighScore()
@@ -68,21 +69,24 @@ namespace PirateWars
 
         public void NameCheck(string name)
         {
-            MySqlDataReader result = dal.NameCheck(name);
-            if (result == null)
+           
+            if (!dal.NameCheck(name))
             {
-                
+                Debug.WriteLine("Namecheck returned null");
             }
             else
             {
                 //LoadGameState();
+                Debug.WriteLine("Namecheck returned results");
             }
+            
         }
 
         public void LoadGameState()
         {
             MySqlDataReader dr = dal.LoadGameState(game.getPlayerName());
             game.LoadGameState(dr);
+            view.UpdateView();
             
         }
         

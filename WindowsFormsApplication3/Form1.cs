@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
 
 namespace PirateWars
 {
@@ -41,6 +42,7 @@ namespace PirateWars
             {
                 dataGridViewInventory.Rows.Add(cargo.Name, cargo.Amount);
             }
+            
             controller.SetView(this);
         }
 
@@ -76,7 +78,7 @@ namespace PirateWars
             updatePort(sender);
         }
 
-        private void UpdateView()
+        public void UpdateView()
         {
             Player player = controller.GetGame().Player;
             Port port = controller.GetGame().GetCurrentPort();
@@ -88,8 +90,6 @@ namespace PirateWars
             
 
             // remember the currently selected row and cell index
-            rowIndex = dataGridViewPort.CurrentCell.RowIndex;
-            cellIndex = dataGridViewPort.CurrentCell.ColumnIndex;
         
             dataGridViewPort.Rows.Clear();
             foreach (Cargo cargo in port.GetPortsCargoList())
@@ -112,10 +112,12 @@ namespace PirateWars
 
             // reselect the right cell
             dataGridViewInventory.CurrentCell = dataGridViewInventory.Rows[rowIndex].Cells[cellIndex];
+            labelTimer.Text = controller.GetGame().Turn.ToString();
+            
         }
 
 
-        public void updatePort(object objSender)
+        private void updatePort(object objSender)
         {
             Button sender = objSender as Button;
             DisableCurrentButton(sender);
@@ -127,7 +129,7 @@ namespace PirateWars
             }
             catch (Exception e)
             {
-                // Do nothing
+                Debug.Write(e);
             }
 
             dataGridViewPort.Rows.Clear();
@@ -142,8 +144,7 @@ namespace PirateWars
             
             dataGridViewPort.CurrentCell = dataGridViewPort.Rows[rowIndex].Cells[cellIndex];
             
-            // Turn-mode disabled
-            // EndTurn();
+           
         }
 
         // Purchase
@@ -204,8 +205,7 @@ namespace PirateWars
 
         private void EndTurn()
         {
-            //Turn-mode disabled
-            //labelTimer.Text = controller.GetGame().EndTurn();
+            labelTimer.Text = controller.GetGame().EndTurn();
         }
 
         private void DisableCurrentButton(Button sender)
@@ -285,5 +285,8 @@ namespace PirateWars
         {
             controller.LoadGameState();
         }
+
+        
+
     }
 }
