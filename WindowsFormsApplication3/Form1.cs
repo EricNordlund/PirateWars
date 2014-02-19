@@ -62,7 +62,12 @@ namespace PirateWars
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+        }
 
+        private void dataGridIntentory_ContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
