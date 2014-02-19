@@ -14,6 +14,8 @@ namespace PirateWars
         private List<Port> portList = new List<Port>();
         private Player player;
         private int turn = 30;
+
+       
         private SetPrice setPrice = new SetPrice();
 
         public void InitializePots()
@@ -40,6 +42,12 @@ namespace PirateWars
                 GameOver();
             }
             return turn.ToString();
+        }
+
+        public int Turn
+        {
+            get { return turn; }
+            set { turn = value; }
         }
 
         public void GameOver()
@@ -204,8 +212,11 @@ namespace PirateWars
         public void LoadGameState(MySqlDataReader result)
         {
             result.Read();
+
+            player.Gold = result.GetInt32(1);
+            this.turn = result.GetInt32(2);
             List<Cargo> clist = player.GetPlayersCargoList();
-            int i = 2;
+            int i = 3;
             foreach (Cargo cargo in player.GetPlayersCargoList())
             {
                 cargo.Amount = result.GetInt32(i);
@@ -214,7 +225,7 @@ namespace PirateWars
 
             foreach (Port port in portList)
             {
-                i=11;
+                i=12;
                 foreach (Cargo cargo in port.GetPortsCargoList())
                 {
                     cargo.Price = result.GetInt32(i);
@@ -222,7 +233,8 @@ namespace PirateWars
                 }
             }
             
-            result.Close();
+            
+            result.Dispose();
             
         }
 

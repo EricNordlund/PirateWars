@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
 
 namespace PirateWars
 {
@@ -37,6 +38,7 @@ namespace PirateWars
                 
             }
             
+            
             this.playerGold.Text = controller.GetPlayerStartingGold() +" Golden Coins";
 
             
@@ -46,6 +48,7 @@ namespace PirateWars
                 dataGridViewInventory.Rows.Add(cargo.Name, cargo.Amount);
             }
 
+            
             controller.SetView(this);
         }
         
@@ -143,6 +146,8 @@ namespace PirateWars
 
             // reselect the right cell
             dataGridViewInventory.CurrentCell = dataGridViewInventory.Rows[rowIndex].Cells[cellIndex];
+            labelTimer.Text = controller.GetGame().Turn.ToString();
+            
         }
 
 
@@ -158,7 +163,7 @@ namespace PirateWars
             }
             catch (Exception e)
             {
-                //GÖR INTE ETT PISS
+                Debug.Write(e);
             }
 
             dataGridViewPort.Rows.Clear();
@@ -322,6 +327,8 @@ namespace PirateWars
         {
             controller.LoadGameState();
         }
+
+        
 
     }
 }

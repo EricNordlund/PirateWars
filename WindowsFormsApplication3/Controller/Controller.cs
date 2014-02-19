@@ -59,7 +59,7 @@ namespace PirateWars
 
         public void SaveGameState()                                                                                                                                                                                               
         {
-            dal.SaveGameState(game.PortList, game.Player);
+            dal.SaveGameState(game.PortList, game.Player, game);
         }
 
         public void SaveHighScore()
@@ -69,24 +69,22 @@ namespace PirateWars
 
         public void NameCheck(string name)
         {
-            MySqlDataReader result = dal.NameCheck(name);
-            if (result == null)
+           
+            if (!dal.NameCheck(name))
             {
                 Debug.WriteLine("Namecheck returned null");
             }
             else
             {
                 Debug.WriteLine("Namecheck returned results");
-                //LoadGameState();
-                
             }
+            
         }
 
         public void LoadGameState()
         {
             MySqlDataReader dr = dal.LoadGameState(game.getPlayerName());
             game.LoadGameState(dr);
-            
             view.UpdateView();
             
         }

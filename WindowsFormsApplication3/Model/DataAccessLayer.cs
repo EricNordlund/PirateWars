@@ -49,13 +49,13 @@ namespace PirateWars
             cmd.ExecuteNonQuery();
         }
 
-        public void SaveGameState(List<Port> portList, Player player)
+        public void SaveGameState(List<Port> portList, Player player, Game game)
         {
 
             string deleteQuery = string.Format("DELETE FROM player WHERE playerName = '{0}'; DELETE FROM port WHERE playerName = '{0}'", player.PlayerName);
             SendData(deleteQuery);
             
-            string queryPlayer = string.Format("INSERT INTO player VALUES ( '{0}', '{1}', ", player.PlayerName, player.Gold);
+            string queryPlayer = string.Format("INSERT INTO player VALUES ( '{0}', '{1}', '{2}',", player.PlayerName, player.Gold, game.Turn);
             
 
             foreach (Port port in portList)
@@ -93,15 +93,31 @@ namespace PirateWars
             SendData(query);
         }
 
-        public MySqlDataReader NameCheck(string name)
+        public bool NameCheck(string name)
         {
             string query = string.Format("SELECT playerName FROM player WHERE playerName = '{0}'", name);
-            return GetData(query);
+            Debug.WriteLine(query);
+            MySqlDataReader dr = GetData(query);
+
+            if (dr.HasRows)
+            {
+                dr.Dispose();
+                return true;
+            }
+            else
+            {
+                dr.Dispose();
+                return false;
+            }
+
+            dr.Dispose();
+            
         }
 
         public MySqlDataReader LoadGameState(string name)
         {
-            string query = string.Format("SELECT * FROM player pl JOIN port po ON pl.playerName = po.playerName AND pl.playerName = '{0}'", name);
+            string query = string.Format("SELECT * FROM player pl JOIN port po ON pl.playerName = po.playerName AND pl.playerName = '{0}' ORDER BY portName", name);
+            Debug.WriteLine(query);
             return (GetData(query));
         }
 
