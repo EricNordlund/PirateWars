@@ -16,10 +16,9 @@ namespace PirateWars
 
 
         
-        /**<summary>
+        /**
          * The constructor class
-         * </summary>
-         * <param name="cargoName"The type of the cargo. e.g. sugar</param>
+         * @param cargoName The type of the cargo. e.g. sugar
          */
         public Cargo(string cargoName)
         {

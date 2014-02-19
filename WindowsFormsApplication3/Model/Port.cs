@@ -31,7 +31,6 @@ namespace PirateWars
             portsCargoList.Add(gunpowder);
             portsCargoList.Add(pearl);
 
-            // Set price on every Cargo
             foreach (Cargo cargo in portsCargoList)
             {
                 cargo.Price = setPrice.initialPrice(cargo.Name);
@@ -47,5 +46,20 @@ namespace PirateWars
         {
             return portName;
         }
+
+        public void DecreaseAmount(Cargo cargo)
+        {
+            cargo.Amount -= 1;
+        }
+
+        public Cargo GetCargo(Cargo cargo)
+        {
+            return cargo;
+        }
+        
+        //Set pris på varje vara
+
+
+
     }
 }
