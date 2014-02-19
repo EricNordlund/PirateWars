@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace PirateWars
 {
@@ -71,10 +72,11 @@ namespace PirateWars
             MySqlDataReader result = dal.NameCheck(name);
             if (result == null)
             {
-                
+                Debug.WriteLine("Namecheck returned null");
             }
             else
             {
+                Debug.WriteLine("Namecheck returned results");
                 //LoadGameState();
                 
             }
@@ -84,6 +86,8 @@ namespace PirateWars
         {
             MySqlDataReader dr = dal.LoadGameState(game.getPlayerName());
             game.LoadGameState(dr);
+            
+            view.UpdateView();
             
         }
 

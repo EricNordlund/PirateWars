@@ -105,7 +105,7 @@ namespace PirateWars
             updatePort(sender);
         }
 
-        private void UpdateView()
+        public void UpdateView()
         {
 
 
@@ -146,7 +146,7 @@ namespace PirateWars
         }
 
 
-        public void updatePort(object objSender)
+        private void updatePort(object objSender)
         {
             Button sender = objSender as Button;
             DisableCurrentButton(sender);
@@ -322,5 +322,6 @@ namespace PirateWars
         {
             controller.LoadGameState();
         }
+
     }
 }

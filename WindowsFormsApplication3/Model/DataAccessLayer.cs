@@ -95,7 +95,7 @@ namespace PirateWars
 
         public MySqlDataReader NameCheck(string name)
         {
-            string query = string.Format("SELECT name FROM player WHERE playerName = '{0}", name);
+            string query = string.Format("SELECT playerName FROM player WHERE playerName = '{0}'", name);
             return GetData(query);
         }
 
