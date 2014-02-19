@@ -153,7 +153,6 @@
             this.lblPlayerName.Size = new System.Drawing.Size(19, 25);
             this.lblPlayerName.TabIndex = 10;
             this.lblPlayerName.Text = "-";
-            this.lblPlayerName.Click += new System.EventHandler(this.label1_Click);
             // 
             // playerGold
             // 
@@ -190,7 +189,6 @@
             this.dataGridViewInventory.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridViewInventory.Size = new System.Drawing.Size(227, 177);
             this.dataGridViewInventory.TabIndex = 13;
-            this.dataGridViewInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // inventoryItem
             // 
@@ -228,7 +226,6 @@
             this.dataGridViewPort.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridViewPort.Size = new System.Drawing.Size(225, 177);
             this.dataGridViewPort.TabIndex = 13;
-            this.dataGridViewPort.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // portItem
             // 
@@ -273,7 +270,6 @@
             this.lblPortsTradingGoods.Size = new System.Drawing.Size(106, 13);
             this.lblPortsTradingGoods.TabIndex = 17;
             this.lblPortsTradingGoods.Text = "Port\'s Trading Goods";
-            this.lblPortsTradingGoods.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // errorLabel
             // 
@@ -284,7 +280,6 @@
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 18;
-            this.errorLabel.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // labelTimer
             // 
@@ -292,9 +287,8 @@
             this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.labelTimer.Location = new System.Drawing.Point(276, 383);
             this.labelTimer.Name = "labelTimer";
-            this.labelTimer.Size = new System.Drawing.Size(36, 25);
+            this.labelTimer.Size = new System.Drawing.Size(0, 25);
             this.labelTimer.TabIndex = 19;
-            this.labelTimer.Text = "30";
             // 
             // button1
             // 
@@ -363,6 +357,7 @@
             this.Controls.Add(this.port3);
             this.Controls.Add(this.port2);
             this.Controls.Add(this.port1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Pirate Wars ultra alpha";
             this.Load += new System.EventHandler(this.Form1_Load);

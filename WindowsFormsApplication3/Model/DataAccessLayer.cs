@@ -20,7 +20,7 @@ namespace PirateWars
 
             String connectionString = @"server=" + url + ";database=" + dbName + ";userid=" + user + ";password=" + passw + ";";
 
-           connection = new MySqlConnection(connectionString);
+            connection = new MySqlConnection(connectionString);
            
             try
             {

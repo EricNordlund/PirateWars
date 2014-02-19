@@ -13,7 +13,7 @@ namespace PirateWars
     partial class Form1 : Form
     {
         
-        string pirateName;
+        private string pirateName;
         Controller controller;
         ExceptionHandler eh = new ExceptionHandler();
         int cellIndex;
@@ -33,82 +33,51 @@ namespace PirateWars
                 controller.SetPlayerName(pirateName);
 
                 lblPlayerName.Text = pirateName;
-                
-                
             }
-            
-            this.playerGold.Text = controller.GetPlayerStartingGold() +" Golden Coins";
 
-            
+            this.playerGold.Text = controller.GetPlayerStartingGold() + " Golden Coins";
 
             foreach (Cargo cargo in controller.GetPlayersCargoList())
             {
                 dataGridViewInventory.Rows.Add(cargo.Name, cargo.Amount);
             }
-
             controller.SetView(this);
         }
-        
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void inventory_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void port1_Click(object sender, EventArgs e)
         {
-
             updatePort(sender);
         }
 
         private void port2_Click(object sender, EventArgs e)
         {
-
             updatePort(sender);
         }
 
         private void port3_Click(object sender, EventArgs e)
         {
-
             updatePort(sender);
         }
 
         private void port4_Click(object sender, EventArgs e)
         {
-
             updatePort(sender);
         }
 
         private void port5_Click(object sender, EventArgs e)
         {
-
             updatePort(sender);
         }
 
         private void port6_Click(object sender, EventArgs e)
         {
-
             updatePort(sender);
         }
 
         private void UpdateView()
         {
-
-
             Player player = controller.GetGame().Player;
             Port port = controller.GetGame().GetCurrentPort();
 
@@ -119,8 +88,8 @@ namespace PirateWars
             
 
             // remember the currently selected row and cell index
-            int rowIndex = dataGridViewPort.CurrentCell.RowIndex;
-            int cellIndex = dataGridViewPort.CurrentCell.ColumnIndex;
+            rowIndex = dataGridViewPort.CurrentCell.RowIndex;
+            cellIndex = dataGridViewPort.CurrentCell.ColumnIndex;
         
             dataGridViewPort.Rows.Clear();
             foreach (Cargo cargo in port.GetPortsCargoList())
@@ -158,7 +127,7 @@ namespace PirateWars
             }
             catch (Exception e)
             {
-                //GÖR INTE ETT PISS
+                // Do nothing
             }
 
             dataGridViewPort.Rows.Clear();
@@ -172,17 +141,18 @@ namespace PirateWars
             }
             
             dataGridViewPort.CurrentCell = dataGridViewPort.Rows[rowIndex].Cells[cellIndex];
-
-            EndTurn();
+            
+            // Turn-mode disabled
+            // EndTurn();
         }
 
-        //purchase
+        // Purchase
         private void button6_Click(object sender, EventArgs e)
         {
             // buy the cargo from the current port
             try
             {
-                // get the selected row from the port gridview and remember the name of the cargo
+                // Get the selected row from the port gridview and remember the name of the cargo
                 String selectedCargoName = dataGridViewPort.CurrentRow.Cells[0].Value as string;
 
                 if (controller.GetGame().PurchaseCargoFromPort(selectedCargoName).Equals(false))
@@ -234,7 +204,8 @@ namespace PirateWars
 
         private void EndTurn()
         {
-            labelTimer.Text = controller.GetGame().EndTurn();
+            //Turn-mode disabled
+            //labelTimer.Text = controller.GetGame().EndTurn();
         }
 
         private void DisableCurrentButton(Button sender)
@@ -252,16 +223,6 @@ namespace PirateWars
             {
                 errorLabel.Text = "";
             }
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
         }
 
         //buyall
@@ -301,7 +262,7 @@ namespace PirateWars
                 else
                 {
                     errorLabel.Text = "";
-                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
+                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"goldDrop.wav");
                     //player.Play();
                 }
                 // update the view
@@ -313,11 +274,13 @@ namespace PirateWars
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        // Save
+       private void button3_Click(object sender, EventArgs e)
         {
             controller.SaveGameState();
         }
 
+        // Load
         private void button4_Click(object sender, EventArgs e)
         {
             controller.LoadGameState();

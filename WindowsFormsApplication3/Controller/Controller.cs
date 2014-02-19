@@ -55,7 +55,7 @@ namespace PirateWars
         {
             game.UpdatePrices();
         }
-
+       
         public void SaveGameState()                                                                                                                                                                                               
         {
             dal.SaveGameState(game.PortList, game.Player);
@@ -76,7 +76,6 @@ namespace PirateWars
             else
             {
                 //LoadGameState();
-                
             }
         }
 
@@ -86,6 +85,6 @@ namespace PirateWars
             game.LoadGameState(dr);
             
         }
-
+        
     }
 }
