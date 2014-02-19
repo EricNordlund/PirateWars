@@ -41,11 +41,7 @@
             this.lblPlayerName = new System.Windows.Forms.Label();
             this.playerGold = new System.Windows.Forms.Label();
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
-            this.inventoryItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewPort = new System.Windows.Forms.DataGridView();
-            this.portItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.portValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTravel = new System.Windows.Forms.Label();
             this.lblPlayerInventory = new System.Windows.Forms.Label();
             this.lblPortsTradingGoods = new System.Windows.Forms.Label();
@@ -59,6 +55,10 @@
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.portItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.portValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPort)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -108,9 +108,9 @@
             // 
             // btnSell
             // 
-            this.btnSell.Location = new System.Drawing.Point(245, 329);
+            this.btnSell.Location = new System.Drawing.Point(243, 329);
             this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(75, 23);
+            this.btnSell.Size = new System.Drawing.Size(77, 23);
             this.btnSell.TabIndex = 6;
             this.btnSell.Text = "Sell";
             this.btnSell.UseVisualStyleBackColor = true;
@@ -118,9 +118,9 @@
             // 
             // btnPurchase
             // 
-            this.btnPurchase.Location = new System.Drawing.Point(245, 204);
+            this.btnPurchase.Location = new System.Drawing.Point(243, 204);
             this.btnPurchase.Name = "btnPurchase";
-            this.btnPurchase.Size = new System.Drawing.Size(75, 23);
+            this.btnPurchase.Size = new System.Drawing.Size(77, 23);
             this.btnPurchase.TabIndex = 7;
             this.btnPurchase.Text = "Buy";
             this.btnPurchase.UseVisualStyleBackColor = true;
@@ -179,28 +179,11 @@
             this.dataGridViewInventory.Location = new System.Drawing.Point(12, 204);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
             this.dataGridViewInventory.ReadOnly = true;
+            this.dataGridViewInventory.RowHeadersVisible = false;
             this.dataGridViewInventory.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridViewInventory.Size = new System.Drawing.Size(227, 177);
+            this.dataGridViewInventory.Size = new System.Drawing.Size(225, 177);
             this.dataGridViewInventory.TabIndex = 13;
             this.dataGridViewInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // inventoryItem
-            // 
-            this.inventoryItem.Frozen = true;
-            this.inventoryItem.HeaderText = "Item";
-            this.inventoryItem.Name = "inventoryItem";
-            this.inventoryItem.ReadOnly = true;
-            this.inventoryItem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.inventoryItem.Width = 110;
-            // 
-            // inventoryQuantity
-            // 
-            this.inventoryQuantity.Frozen = true;
-            this.inventoryQuantity.HeaderText = "Quantity";
-            this.inventoryQuantity.Name = "inventoryQuantity";
-            this.inventoryQuantity.ReadOnly = true;
-            this.inventoryQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.inventoryQuantity.Width = 85;
             // 
             // dataGridViewPort
             // 
@@ -213,26 +196,11 @@
             this.dataGridViewPort.Location = new System.Drawing.Point(326, 204);
             this.dataGridViewPort.Name = "dataGridViewPort";
             this.dataGridViewPort.ReadOnly = true;
+            this.dataGridViewPort.RowHeadersVisible = false;
             this.dataGridViewPort.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridViewPort.Size = new System.Drawing.Size(225, 177);
             this.dataGridViewPort.TabIndex = 13;
             this.dataGridViewPort.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // portItem
-            // 
-            this.portItem.HeaderText = "Item";
-            this.portItem.Name = "portItem";
-            this.portItem.ReadOnly = true;
-            this.portItem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.portItem.Width = 110;
-            // 
-            // portValue
-            // 
-            this.portValue.HeaderText = "Value";
-            this.portValue.Name = "portValue";
-            this.portValue.ReadOnly = true;
-            this.portValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.portValue.Width = 75;
             // 
             // lblTravel
             // 
@@ -286,9 +254,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(245, 233);
+            this.button1.Location = new System.Drawing.Point(243, 233);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(77, 23);
             this.button1.TabIndex = 20;
             this.button1.Text = "Buy Max";
             this.button1.UseVisualStyleBackColor = true;
@@ -296,9 +264,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(245, 358);
+            this.button2.Location = new System.Drawing.Point(243, 358);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(77, 23);
             this.button2.TabIndex = 21;
             this.button2.Text = "Sell Max";
             this.button2.UseVisualStyleBackColor = true;
@@ -350,6 +318,40 @@
             // cargoBindingSource
             // 
             this.cargoBindingSource.DataSource = typeof(PirateWars.Cargo);
+            // 
+            // inventoryItem
+            // 
+            this.inventoryItem.Frozen = true;
+            this.inventoryItem.HeaderText = "Item";
+            this.inventoryItem.Name = "inventoryItem";
+            this.inventoryItem.ReadOnly = true;
+            this.inventoryItem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.inventoryItem.Width = 140;
+            // 
+            // inventoryQuantity
+            // 
+            this.inventoryQuantity.Frozen = true;
+            this.inventoryQuantity.HeaderText = "Quantity";
+            this.inventoryQuantity.Name = "inventoryQuantity";
+            this.inventoryQuantity.ReadOnly = true;
+            this.inventoryQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.inventoryQuantity.Width = 85;
+            // 
+            // portItem
+            // 
+            this.portItem.HeaderText = "Item";
+            this.portItem.Name = "portItem";
+            this.portItem.ReadOnly = true;
+            this.portItem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.portItem.Width = 140;
+            // 
+            // portValue
+            // 
+            this.portValue.HeaderText = "Value";
+            this.portValue.Name = "portValue";
+            this.portValue.ReadOnly = true;
+            this.portValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.portValue.Width = 85;
             // 
             // Form1
             // 
@@ -413,15 +415,15 @@
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Label labelTimer;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn portItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn portValue;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn portItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn portValue;
     }
 }
