@@ -329,6 +329,16 @@ namespace PirateWars
             controller.LoadGameState();
         }
 
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controller.SaveGameState();
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controller.LoadGameState();
+        }
+
         
 
     }

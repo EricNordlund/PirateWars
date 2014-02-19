@@ -40,11 +40,9 @@
             this.port6 = new System.Windows.Forms.Button();
             this.lblPlayerName = new System.Windows.Forms.Label();
             this.playerGold = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
             this.inventoryItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewPort = new System.Windows.Forms.DataGridView();
             this.portItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.portValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,19 +53,23 @@
             this.labelTimer = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPort)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // port1
             // 
-            this.port1.Location = new System.Drawing.Point(343, 34);
+            this.port1.Location = new System.Drawing.Point(326, 52);
             this.port1.Name = "port1";
-            this.port1.Size = new System.Drawing.Size(119, 38);
+            this.port1.Size = new System.Drawing.Size(108, 38);
             this.port1.TabIndex = 0;
             this.port1.Text = "Tortuga";
             this.port1.UseVisualStyleBackColor = true;
@@ -75,9 +77,9 @@
             // 
             // port2
             // 
-            this.port2.Location = new System.Drawing.Point(468, 34);
+            this.port2.Location = new System.Drawing.Point(443, 52);
             this.port2.Name = "port2";
-            this.port2.Size = new System.Drawing.Size(119, 38);
+            this.port2.Size = new System.Drawing.Size(108, 38);
             this.port2.TabIndex = 3;
             this.port2.Text = "Black Water Bay";
             this.port2.UseVisualStyleBackColor = true;
@@ -86,9 +88,9 @@
             // port3
             // 
             this.port3.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.port3.Location = new System.Drawing.Point(343, 78);
+            this.port3.Location = new System.Drawing.Point(326, 96);
             this.port3.Name = "port3";
-            this.port3.Size = new System.Drawing.Size(119, 38);
+            this.port3.Size = new System.Drawing.Size(108, 38);
             this.port3.TabIndex = 4;
             this.port3.Text = "Providence";
             this.port3.UseVisualStyleBackColor = true;
@@ -96,9 +98,9 @@
             // 
             // port4
             // 
-            this.port4.Location = new System.Drawing.Point(468, 78);
+            this.port4.Location = new System.Drawing.Point(443, 96);
             this.port4.Name = "port4";
-            this.port4.Size = new System.Drawing.Size(119, 38);
+            this.port4.Size = new System.Drawing.Size(108, 38);
             this.port4.TabIndex = 5;
             this.port4.Text = "Isla de Muerta";
             this.port4.UseVisualStyleBackColor = true;
@@ -106,9 +108,9 @@
             // 
             // btnSell
             // 
-            this.btnSell.Location = new System.Drawing.Point(245, 233);
+            this.btnSell.Location = new System.Drawing.Point(245, 329);
             this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(68, 23);
+            this.btnSell.Size = new System.Drawing.Size(75, 23);
             this.btnSell.TabIndex = 6;
             this.btnSell.Text = "Sell";
             this.btnSell.UseVisualStyleBackColor = true;
@@ -116,9 +118,9 @@
             // 
             // btnPurchase
             // 
-            this.btnPurchase.Location = new System.Drawing.Point(245, 193);
+            this.btnPurchase.Location = new System.Drawing.Point(245, 204);
             this.btnPurchase.Name = "btnPurchase";
-            this.btnPurchase.Size = new System.Drawing.Size(68, 23);
+            this.btnPurchase.Size = new System.Drawing.Size(75, 23);
             this.btnPurchase.TabIndex = 7;
             this.btnPurchase.Text = "Buy";
             this.btnPurchase.UseVisualStyleBackColor = true;
@@ -126,9 +128,9 @@
             // 
             // port5
             // 
-            this.port5.Location = new System.Drawing.Point(343, 122);
+            this.port5.Location = new System.Drawing.Point(326, 140);
             this.port5.Name = "port5";
-            this.port5.Size = new System.Drawing.Size(119, 38);
+            this.port5.Size = new System.Drawing.Size(108, 38);
             this.port5.TabIndex = 8;
             this.port5.Text = "Shipwreck Cove";
             this.port5.UseVisualStyleBackColor = true;
@@ -136,9 +138,9 @@
             // 
             // port6
             // 
-            this.port6.Location = new System.Drawing.Point(468, 122);
+            this.port6.Location = new System.Drawing.Point(443, 140);
             this.port6.Name = "port6";
-            this.port6.Size = new System.Drawing.Size(119, 38);
+            this.port6.Size = new System.Drawing.Size(108, 38);
             this.port6.TabIndex = 9;
             this.port6.Text = "Free Port";
             this.port6.UseVisualStyleBackColor = true;
@@ -147,10 +149,10 @@
             // lblPlayerName
             // 
             this.lblPlayerName.AutoSize = true;
-            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerName.Location = new System.Drawing.Point(12, 6);
+            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
+            this.lblPlayerName.Location = new System.Drawing.Point(8, 29);
             this.lblPlayerName.Name = "lblPlayerName";
-            this.lblPlayerName.Size = new System.Drawing.Size(19, 25);
+            this.lblPlayerName.Size = new System.Drawing.Size(16, 22);
             this.lblPlayerName.TabIndex = 10;
             this.lblPlayerName.Text = "-";
             this.lblPlayerName.Click += new System.EventHandler(this.label1_Click);
@@ -159,21 +161,11 @@
             // 
             this.playerGold.AutoSize = true;
             this.playerGold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerGold.Location = new System.Drawing.Point(13, 42);
+            this.playerGold.Location = new System.Drawing.Point(8, 52);
             this.playerGold.Name = "playerGold";
             this.playerGold.Size = new System.Drawing.Size(48, 20);
             this.playerGold.TabIndex = 11;
             this.playerGold.Text = "Cash";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(20, 65);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
             // 
             // dataGridViewInventory
             // 
@@ -184,7 +176,7 @@
             this.inventoryItem,
             this.inventoryQuantity});
             this.dataGridViewInventory.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.cargoBindingSource, "name", true));
-            this.dataGridViewInventory.Location = new System.Drawing.Point(12, 193);
+            this.dataGridViewInventory.Location = new System.Drawing.Point(12, 204);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
             this.dataGridViewInventory.ReadOnly = true;
             this.dataGridViewInventory.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -210,10 +202,6 @@
             this.inventoryQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.inventoryQuantity.Width = 85;
             // 
-            // cargoBindingSource
-            // 
-            this.cargoBindingSource.DataSource = typeof(PirateWars.Cargo);
-            // 
             // dataGridViewPort
             // 
             this.dataGridViewPort.AllowUserToAddRows = false;
@@ -222,7 +210,7 @@
             this.dataGridViewPort.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.portItem,
             this.portValue});
-            this.dataGridViewPort.Location = new System.Drawing.Point(361, 193);
+            this.dataGridViewPort.Location = new System.Drawing.Point(326, 204);
             this.dataGridViewPort.Name = "dataGridViewPort";
             this.dataGridViewPort.ReadOnly = true;
             this.dataGridViewPort.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -250,16 +238,16 @@
             // 
             this.lblTravel.AutoSize = true;
             this.lblTravel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTravel.Location = new System.Drawing.Point(424, 6);
+            this.lblTravel.Location = new System.Drawing.Point(411, 26);
             this.lblTravel.Name = "lblTravel";
-            this.lblTravel.Size = new System.Drawing.Size(78, 25);
+            this.lblTravel.Size = new System.Drawing.Size(52, 25);
             this.lblTravel.TabIndex = 14;
-            this.lblTravel.Text = "Travel";
+            this.lblTravel.Text = "Sail";
             // 
             // lblPlayerInventory
             // 
             this.lblPlayerInventory.AutoSize = true;
-            this.lblPlayerInventory.Location = new System.Drawing.Point(14, 177);
+            this.lblPlayerInventory.Location = new System.Drawing.Point(9, 188);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
             this.lblPlayerInventory.Size = new System.Drawing.Size(60, 13);
             this.lblPlayerInventory.TabIndex = 16;
@@ -268,7 +256,7 @@
             // lblPortsTradingGoods
             // 
             this.lblPortsTradingGoods.AutoSize = true;
-            this.lblPortsTradingGoods.Location = new System.Drawing.Point(358, 177);
+            this.lblPortsTradingGoods.Location = new System.Drawing.Point(323, 188);
             this.lblPortsTradingGoods.Name = "lblPortsTradingGoods";
             this.lblPortsTradingGoods.Size = new System.Drawing.Size(106, 13);
             this.lblPortsTradingGoods.TabIndex = 17;
@@ -289,60 +277,86 @@
             // labelTimer
             // 
             this.labelTimer.AutoSize = true;
-            this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.labelTimer.Location = new System.Drawing.Point(276, 383);
+            this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.labelTimer.Location = new System.Drawing.Point(95, 72);
             this.labelTimer.Name = "labelTimer";
-            this.labelTimer.Size = new System.Drawing.Size(36, 25);
+            this.labelTimer.Size = new System.Drawing.Size(27, 20);
             this.labelTimer.TabIndex = 19;
             this.labelTimer.Text = "30";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(319, 193);
+            this.button1.Location = new System.Drawing.Point(245, 233);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 23);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 20;
-            this.button1.Text = "All";
+            this.button1.Text = "Buy Max";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(319, 233);
+            this.button2.Location = new System.Drawing.Point(245, 358);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 23);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 21;
-            this.button2.Text = "All";
+            this.button2.Text = "Sell Max";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // menuStrip1
             // 
-            this.button3.Location = new System.Drawing.Point(429, 383);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(561, 24);
+            this.menuStrip1.TabIndex = 24;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // button4
+            // fileToolStripMenuItem
             // 
-            this.button4.Location = new System.Drawing.Point(511, 383);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "Load";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label1.Location = new System.Drawing.Point(8, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 20);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Days left:";
+            // 
+            // cargoBindingSource
+            // 
+            this.cargoBindingSource.DataSource = typeof(PirateWars.Cargo);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 420);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(561, 391);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelTimer);
@@ -352,7 +366,6 @@
             this.Controls.Add(this.lblTravel);
             this.Controls.Add(this.dataGridViewPort);
             this.Controls.Add(this.dataGridViewInventory);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.playerGold);
             this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.port6);
@@ -363,13 +376,17 @@
             this.Controls.Add(this.port3);
             this.Controls.Add(this.port2);
             this.Controls.Add(this.port1);
+            this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Pirate Wars ultra alpha";
+            this.Text = "Pirate Wars";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPort)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,7 +404,6 @@
         private System.Windows.Forms.Button port6;
         private System.Windows.Forms.Label lblPlayerName;
         private System.Windows.Forms.Label playerGold;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridViewInventory;
         private System.Windows.Forms.DataGridView dataGridViewPort;
         private System.Windows.Forms.Label lblTravel;
@@ -402,7 +418,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn portItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn portValue;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }
