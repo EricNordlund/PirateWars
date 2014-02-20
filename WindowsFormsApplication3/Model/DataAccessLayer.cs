@@ -28,7 +28,7 @@ namespace PirateWars
             }
             catch (Exception e)
             {
-                Debug.Write("FEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEL!");
+                System.Windows.Forms.MessageBox.Show("Connection to database timed out, game will not be able to save or load gamestates");
             }
  
 

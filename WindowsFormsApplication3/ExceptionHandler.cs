@@ -19,7 +19,9 @@ namespace PirateWars
                 case "SelectPort":
                     return ShowError("Yarr, Captain! You must travel to a port first!");
                 case "NoGold":
-                    return ShowError("Shiver me timbers, Captain! We're out of gold");
+                    return ShowError("Shiver me timbers, Captain! We're out of gold!");
+                case "loadGame":
+                    return ShowError("There is no saved game with this name, Captain!");
             }
             return null;
         }

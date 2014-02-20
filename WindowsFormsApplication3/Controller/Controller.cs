@@ -14,7 +14,10 @@ namespace PirateWars
         Game game;
         Player player;
         Form1 view;
-
+        /// <summary>
+        /// Constructor that references DAL and Game 
+        /// via inparameters.
+        /// </summary>
         public Controller(ref DataAccessLayer dal, ref Game game)
         {
             this.dal = dal;
@@ -25,47 +28,67 @@ namespace PirateWars
         {
             this.view = view;
         }
-
+       
+        /// <summary>
+        /// Method to get Game.
+        /// </summary>
         public Game GetGame()
         {
             return game;
         }
 
+        /// <summary>
+        /// Method to set players name.
+        /// </summary>
         public void SetPlayerName(string pirateName)
         {
             game.SetPlayerName(pirateName);
         }
-
+        
+        /// <summary>
+        /// Method to get players gold. (Either starting
+        /// value or from a saved game.)
+        /// </summary>
         public int GetPlayerStartingGold()
         {
             return game.Player.Gold;
         }
 
+        /// <summary>
+        /// Get players cargo from a list.
+        /// </summary>
         public List<Cargo> GetPlayersCargoList()
         {
             return game.Player.GetPlayersCargoList();
         }
 
+        /// <summary>
+        /// Get ports cargo from a list.
+        /// </summary>
         public List<Cargo> GetPortsCargoList(string portName)
         {
             return game.GetPort(portName).GetPortsCargoList();
         }
-
+       
+        /// <summary>
+        /// updates prices
+        /// </summary>
         public void UpdatePrices()
         {
             game.UpdatePrices();
         }
 
+        /// <summary>
+        /// Saves the game.
+        /// </summary>
         public void SaveGameState()                                                                                                                                                                                               
         {
             dal.SaveGameState(game.PortList, game.Player, game);
         }
-
-        public void SaveHighScore()
-        {
-            dal.SaveHighScore(game.Player);
-        }
        
+        /// <summary>
+        /// Loads a previous game.
+        /// </summary>
         public void LoadGameState()
         {
             MySqlDataReader dr = dal.LoadGameState(game.getPlayerName());

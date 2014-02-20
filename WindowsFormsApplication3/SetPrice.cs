@@ -7,9 +7,9 @@ namespace PirateWars
         private Random rand = new Random();
 
         //Price configuration
-        private int priceDirectionChance = 50; //50% chance of a pricechange
+        private int priceDirectionChance = 60; //40% chance of a pricechange
         private int priceChangeMinimumPercentage = 1;
-        private int priceChangeMaximumPercentage = 3;
+        private int priceChangeMaximumPercentage = 5;
         private int initialCargoPriceSpices = 1000;
         private int initialCargoPriceBullets = 900;
         private int initialCargoPriceRum = 800;
@@ -55,7 +55,7 @@ namespace PirateWars
          *@param cargoName The name of the cargo to get an initial price.
          *@return Integer containing the price.
          */
-        public int initialPrice(String cargoName) //Inte klar! :D
+        public int initialPrice(String cargoName)
         {
             switch (cargoName)
             {

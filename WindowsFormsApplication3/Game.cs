@@ -16,7 +16,7 @@ namespace PirateWars
         private int turn = 30;
         private SetPrice setPrice = new SetPrice();
 
-        public void InitializePots()
+        public void InitializePorts()
         {
             Port tartuga = new Port("Tortuga", setPrice);
             Port blackwater = new Port("Black Water Bay", setPrice);
@@ -32,6 +32,10 @@ namespace PirateWars
             portList.Add(islaDeMuerta);
         }
 
+        /// <summary>
+        /// End turn and call game over if turn == 0
+        /// </summary>
+        /// <returns>Current turn in string</returns>
         public String EndTurn()
         {
             turn--;
@@ -136,6 +140,11 @@ namespace PirateWars
             }
         }
 
+        /// <summary>
+        /// Sell maximum amount of the selected cargo
+        /// </summary>
+        /// <param name="cargoName"></param>
+        /// <returns>boolean if transaction succeeded</returns>
         public bool SellCargoToPortAll(String cargoName)
         {
             Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.Name == cargoName);
@@ -158,6 +167,11 @@ namespace PirateWars
             }
         }
 
+        /// <summary>
+        /// Buy maximum cargo affordable
+        /// </summary>
+        /// <param name="cargoName"></param>
+        /// <returns></returns>
         public bool PurchaseCargoFromPortAll(String cargoName)
         {
             Cargo playerCargo = player.GetPlayersCargoList().Find(cargo => cargo.Name == cargoName);
@@ -181,9 +195,9 @@ namespace PirateWars
             }
         }
 
-        /**
-         * Updates all of the prices in all of the ports.
-         * */
+        /// <summary>
+        /// Updates all prices
+        /// </summary>
         public void UpdatePrices()
         {
             foreach (Port port in portList)
@@ -206,7 +220,10 @@ namespace PirateWars
             get { return player; }
         }
 
-        
+        /// <summary>
+        /// Load gamestate from current player
+        /// </summary>
+        /// <param name="result"></param>
         public void LoadGameState(MySqlDataReader result)
         {
             result.Read();
