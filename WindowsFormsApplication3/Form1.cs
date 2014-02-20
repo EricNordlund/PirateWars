@@ -24,6 +24,7 @@ namespace PirateWars
         {
             InitializeComponent();
             this.controller = controller;
+            controller.SetView(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,8 +48,23 @@ namespace PirateWars
                 dataGridViewInventory.Rows.Add(cargo.Name, cargo.Amount);
             }
 
-            controller.SetView(this);
+            
         }
+
+
+        public void GameOver()
+        {
+            Form2 gd = new Form2(this.controller);
+
+            if (gd.ShowDialog(this) == DialogResult.OK)
+            {
+                
+            }
+            
+
+            gd.Dispose();
+        }
+
         
         private void label1_Click(object sender, EventArgs e)
         {
@@ -111,6 +127,8 @@ namespace PirateWars
             updatePort(sender);
         }
 
+
+
         public void UpdateView()
         {
 
@@ -161,7 +179,7 @@ namespace PirateWars
             Button sender = objSender as Button;
             DisableCurrentButton(sender);
             controller.UpdatePrices();
-            EndTurn();
+            
             try
             {
                 rowIndex = dataGridViewPort.CurrentCell.RowIndex;
@@ -184,7 +202,7 @@ namespace PirateWars
             }
             
             dataGridViewPort.CurrentCell = dataGridViewPort.Rows[rowIndex].Cells[cellIndex];
-            
+            EndTurn();
         }
 
         //purchase
@@ -245,7 +263,7 @@ namespace PirateWars
 
         private void EndTurn()
         {
-            labelTimer.Text = controller.GetGame().EndTurn();
+            labelTimer.Text = controller.GetGame().EndTurn(this);
         }
 
         private void DisableCurrentButton(Button sender)
@@ -270,10 +288,7 @@ namespace PirateWars
 
         }
 
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
+      
 
         //buyall
         private void button1_Click(object sender, EventArgs e)
@@ -324,15 +339,7 @@ namespace PirateWars
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            controller.SaveGameState();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            controller.LoadGameState();
-        }
+       
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -240,7 +240,7 @@
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 18;
-            this.errorLabel.Click += new System.EventHandler(this.label1_Click_2);
+           
             // 
             // labelTimer
             // 

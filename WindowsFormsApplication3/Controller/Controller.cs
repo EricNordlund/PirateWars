@@ -57,6 +57,12 @@ namespace PirateWars
             game.UpdatePrices();
         }
 
+        public void GameOver()
+        {
+            view.GameOver();
+        }
+
+
         public void SaveGameState()                                                                                                                                                                                               
         {
             dal.SaveGameState(game.PortList, game.Player, game);

@@ -32,12 +32,12 @@ namespace PirateWars
             portList.Add(islaDeMuerta);
         }
 
-        public String EndTurn()
+        public String EndTurn(Form1 view)
         {
             turn--;
             if (turn == 0)
             {
-                GameOver();
+                view.GameOver();
             }
             return turn.ToString();
         }

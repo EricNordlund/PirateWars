@@ -13,9 +13,9 @@ namespace PirateWars
 
         public DataAccessLayer()
         {
-            String user = "pirate";
-            String passw = "PomPom876";
-            String url = "192.168.0.99";
+            String user = "root";
+            String passw = "";
+            String url = "localhost";
             String dbName = "PirateWars";
 
             String connectionString = @"server=" + url + ";database=" + dbName + ";userid=" + user + ";password=" + passw + ";";
@@ -110,7 +110,6 @@ namespace PirateWars
                 return false;
             }
 
-            dr.Dispose();
             
         }
 
