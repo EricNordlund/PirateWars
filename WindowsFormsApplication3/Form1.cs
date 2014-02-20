@@ -16,7 +16,6 @@ namespace PirateWars
         
         string pirateName;
         Controller controller;
-        ExceptionHandler eh = new ExceptionHandler();
         int cellIndex;
         int rowIndex;
         
@@ -198,7 +197,7 @@ namespace PirateWars
 
                 if (controller.GetGame().PurchaseCargoFromPort(selectedCargoName).Equals(false))
                 {
-                    errorLabel.Text = eh.HandleException("NoGold");
+                    errorLabel.Text = ExceptionHandler.HandleException("NoGold");
                 }
                 else
                 {
@@ -211,7 +210,7 @@ namespace PirateWars
             }
             catch(Exception er)
             {
-                errorLabel.Text = eh.HandleException("SelectPort");
+                errorLabel.Text = ExceptionHandler.HandleException("SelectPort");
             }
 
         }
@@ -226,7 +225,7 @@ namespace PirateWars
 
                 if (controller.GetGame().SellCargoToPort(selectedCargoName).Equals(false))
                 {
-                    errorLabel.Text = eh.HandleException("DecreaseAmountPlayer");
+                    errorLabel.Text = ExceptionHandler.HandleException("DecreaseAmountPlayer");
                 }
                 else
                 {
@@ -239,7 +238,7 @@ namespace PirateWars
             }
             catch (Exception er)
             {
-                errorLabel.Text = eh.HandleException("SelectPort");
+                errorLabel.Text = ExceptionHandler.HandleException("SelectPort");
             }
         }
 
@@ -259,7 +258,7 @@ namespace PirateWars
             sender.Enabled = false;
 
 
-            if (errorLabel.Text == eh.HandleException("SelectPort"))
+            if (errorLabel.Text == ExceptionHandler.HandleException("SelectPort"))
             {
                 errorLabel.Text = "";
             }
@@ -284,7 +283,7 @@ namespace PirateWars
 
                 if (controller.GetGame().PurchaseCargoFromPortAll(selectedCargoName).Equals(false))
                 {
-                    errorLabel.Text = eh.HandleException("NoGold");
+                    errorLabel.Text = ExceptionHandler.HandleException("NoGold");
                 }
                 else
                 {
@@ -295,7 +294,7 @@ namespace PirateWars
             }
             catch (Exception er)
             {
-                errorLabel.Text = eh.HandleException("SelectPort");
+                errorLabel.Text = ExceptionHandler.HandleException("SelectPort");
             }
         }
         //sellall
@@ -307,7 +306,7 @@ namespace PirateWars
 
                 if (controller.GetGame().SellCargoToPortAll(selectedCargoName).Equals(false))
                 {
-                    errorLabel.Text = eh.HandleException("DecreaseAmountPlayer");
+                    errorLabel.Text = ExceptionHandler.HandleException("DecreaseAmountPlayer");
                 }
                 else
                 {
@@ -320,7 +319,7 @@ namespace PirateWars
             }
             catch (Exception er)
             {
-                errorLabel.Text = eh.HandleException("SelectPort");
+                errorLabel.Text = ExceptionHandler.HandleException("SelectPort");
             }
         }
 

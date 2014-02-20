@@ -14,7 +14,6 @@ namespace PirateWars
         Game game;
         Player player;
         Form1 view;
-        ExceptionHandler exceptionHandler = new ExceptionHandler();
 
         public Controller(ref DataAccessLayer dal, ref Game game)
         {
@@ -66,24 +65,7 @@ namespace PirateWars
         {
             dal.SaveHighScore(game.Player);
         }
-
-        public void NameCheck(string name)
-        {
-           
-            if (!dal.NameCheck(name))
-            {
-                Debug.WriteLine("Namecheck returned null");
-            }
-            else
-            {
-                //LoadGameState();
-
-                Debug.WriteLine("Namecheck returned results");
-
-            }
-            
-        }
-
+       
         public void LoadGameState()
         {
             MySqlDataReader dr = dal.LoadGameState(game.getPlayerName());

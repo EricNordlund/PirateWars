@@ -13,9 +13,9 @@ namespace PirateWars
 
         public DataAccessLayer()
         {
-            String user = "pirate";
-            String passw = "PomPom876";
-            String url = "192.168.0.99";
+            String user = "root";
+            String passw = "";
+            String url = "localhost";
             String dbName = "PirateWars";
 
             String connectionString = @"server=" + url + ";database=" + dbName + ";userid=" + user + ";password=" + passw + ";";
@@ -89,29 +89,10 @@ namespace PirateWars
 
         public void SaveHighScore(Player player)
         {
-            string query = "INSERT INTO highscore (pName, pGold) VALUES ('" + player.PlayerName + "', '" + player.Gold + "')";
+            string query = "INSERT INTO highscore (pName, pGold) VALUES ('" + player.PlayerName + "', '" + player.Gold + "') \n" +
+            "DELETE FROM player WHERE pName = " + player.PlayerName + "\n" +
+            "DELETE FROM port WHERE pName = " + player.PlayerName;
             SendData(query);
-        }
-
-        public bool NameCheck(string name)
-        {
-            string query = string.Format("SELECT playerName FROM player WHERE playerName = '{0}'", name);
-            Debug.WriteLine(query);
-            MySqlDataReader dr = GetData(query);
-
-            if (dr.HasRows)
-            {
-                dr.Dispose();
-                return true;
-            }
-            else
-            {
-                dr.Dispose();
-                return false;
-            }
-
-            dr.Dispose();
-            
         }
 
         public MySqlDataReader LoadGameState(string name)
