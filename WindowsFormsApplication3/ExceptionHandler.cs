@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace PirateWars
 {
-    class ExceptionHandler
+    static class ExceptionHandler
     {
 
 
-        public String HandleException(String sender)
+        public static String HandleException(String sender)
         {
             switch (sender)
             {
@@ -19,26 +19,16 @@ namespace PirateWars
                 case "SelectPort":
                     return ShowError("Yarr, Captain! You must travel to a port first!");
                 case "NoGold":
-                    return ShowError("Shiver me timbers, Captain! We're out of gold");
+                    return ShowError("Shiver me timbers, Captain! We're out of gold!");
+                case "loadGame":
+                    return ShowError("There is no saved game with this name, Captain!");
             }
             return null;
         }
 
-        public String ShowError(String error)
+        public static String ShowError(String error)
         {
             return error;
         }
     }
 }
-/*
- * 
- try
- {
-  Göra något
- }
- catch(Exception e)
- {
-   ExceptionHandler.HandleException("Fel på något", e);
- }
-
-*/

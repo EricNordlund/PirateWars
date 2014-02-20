@@ -28,7 +28,7 @@ namespace PirateWars
             }
             catch (Exception e)
             {
-                Debug.Write("FEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEL!");
+                System.Windows.Forms.MessageBox.Show("Connection to database timed out, game will not be able to save or load gamestates");
             }
  
 
@@ -87,12 +87,9 @@ namespace PirateWars
             
         }
 
-        public void SaveHighScore(Player player)
-        {
-            string query = "INSERT INTO highscore (pName, pGold) VALUES ('" + player.PlayerName + "', '" + player.Gold + "')";
-            SendData(query);
-        }
+       
 
+        
         public bool NameCheck(string name)
         {
             string query = string.Format("SELECT playerName FROM player WHERE playerName = '{0}'", name);

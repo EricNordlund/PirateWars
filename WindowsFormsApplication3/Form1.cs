@@ -14,9 +14,8 @@ namespace PirateWars
     partial class Form1 : Form
     {
         
-        string pirateName;
+        string pirateName ="";
         Controller controller;
-        ExceptionHandler eh = new ExceptionHandler();
         int cellIndex;
         int rowIndex;
         
@@ -29,14 +28,12 @@ namespace PirateWars
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            while (lblPlayerName.Text == "" || lblPlayerName.Text == "-")
+            while (lblPlayerName.Text == "" || pirateName.Length>20)
             {
-                pirateName = Microsoft.VisualBasic.Interaction.InputBox("Enter your name, Captain!", "Player setup", "");
+                pirateName = Microsoft.VisualBasic.Interaction.InputBox("Enter your name, Captain!(Max 20 characters)", "Player setup", "");
                 controller.SetPlayerName(pirateName);
 
-                lblPlayerName.Text = pirateName;
-                
-                
+                lblPlayerName.Text = pirateName;                
             }
             
             this.playerGold.Text = controller.GetPlayerStartingGold() +" Golden Coins";
@@ -50,6 +47,7 @@ namespace PirateWars
 
             
         }
+      
 
 
         public void GameOver()
@@ -71,26 +69,7 @@ namespace PirateWars
             
         }
 
-        private void inventory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-        private void dataGridIntentory_ContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         private void port1_Click(object sender, EventArgs e)
         {
 
@@ -127,12 +106,8 @@ namespace PirateWars
             updatePort(sender);
         }
 
-
-
         public void UpdateView()
         {
-
-
             Player player = controller.GetGame().Player;
             Port port = controller.GetGame().GetCurrentPort();
 
@@ -173,7 +148,10 @@ namespace PirateWars
             
         }
 
-
+        /// <summary>
+        /// Update tables, disable current port button, End turn, update form.
+        /// </summary>
+        /// <param name="objSender"></param>
         private void updatePort(object objSender)
         {
             Button sender = objSender as Button;
@@ -216,7 +194,7 @@ namespace PirateWars
 
                 if (controller.GetGame().PurchaseCargoFromPort(selectedCargoName).Equals(false))
                 {
-                    errorLabel.Text = eh.HandleException("NoGold");
+                    errorLabel.Text = ExceptionHandler.HandleException("NoGold");
                 }
                 else
                 {
@@ -229,7 +207,7 @@ namespace PirateWars
             }
             catch(Exception er)
             {
-                errorLabel.Text = eh.HandleException("SelectPort");
+                errorLabel.Text = ExceptionHandler.HandleException("SelectPort");
             }
 
         }
@@ -244,20 +222,20 @@ namespace PirateWars
 
                 if (controller.GetGame().SellCargoToPort(selectedCargoName).Equals(false))
                 {
-                    errorLabel.Text = eh.HandleException("DecreaseAmountPlayer");
+                    errorLabel.Text = ExceptionHandler.HandleException("DecreaseAmountPlayer");
                 }
                 else
                 {
-                    errorLabel.Text = "";
-                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
-                    //player.Play();
+                    errorLabel.Text = "";;
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\Fille\Documents\GitHub\PirateWars\WindowsFormsApplication3\goldDrop.wav");
+                    player.Play();
                 }
             // update the view
             UpdateView();
             }
             catch (Exception er)
             {
-                errorLabel.Text = eh.HandleException("SelectPort");
+                errorLabel.Text = ExceptionHandler.HandleException("SelectPort");
             }
         }
 
@@ -277,18 +255,12 @@ namespace PirateWars
             sender.Enabled = false;
 
 
-            if (errorLabel.Text == eh.HandleException("SelectPort"))
+            if (errorLabel.Text == ExceptionHandler.HandleException("SelectPort"))
             {
                 errorLabel.Text = "";
             }
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-      
 
         //buyall
         private void button1_Click(object sender, EventArgs e)
@@ -299,7 +271,7 @@ namespace PirateWars
 
                 if (controller.GetGame().PurchaseCargoFromPortAll(selectedCargoName).Equals(false))
                 {
-                    errorLabel.Text = eh.HandleException("NoGold");
+                    errorLabel.Text = ExceptionHandler.HandleException("NoGold");
                 }
                 else
                 {
@@ -310,7 +282,7 @@ namespace PirateWars
             }
             catch (Exception er)
             {
-                errorLabel.Text = eh.HandleException("SelectPort");
+                errorLabel.Text = ExceptionHandler.HandleException("SelectPort");
             }
         }
         //sellall
@@ -322,36 +294,49 @@ namespace PirateWars
 
                 if (controller.GetGame().SellCargoToPortAll(selectedCargoName).Equals(false))
                 {
-                    errorLabel.Text = eh.HandleException("DecreaseAmountPlayer");
+                    errorLabel.Text = ExceptionHandler.HandleException("DecreaseAmountPlayer");
                 }
                 else
                 {
                     errorLabel.Text = "";
-                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"\\student.local\Files\Home\sys12jli\Desktop\goldDrop.wav");
-                    //player.Play();
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\Fille\Documents\GitHub\PirateWars\WindowsFormsApplication3\goldDrop.wav");
+                    player.Play();
                 }
                 // update the view
                 UpdateView();
             }
             catch (Exception er)
             {
-                errorLabel.Text = eh.HandleException("SelectPort");
+                errorLabel.Text = ExceptionHandler.HandleException("SelectPort");
             }
         }
 
-       
-
+        }
+        //save from 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controller.SaveGameState();
+            try
+            {
+                controller.SaveGameState();
+                errorLabel.Text = "Game saved!";
+            }
+            catch (Exception er)
+            {
+                errorLabel.Text = ExceptionHandler.HandleException("loadGame");
+            }
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controller.LoadGameState();
+            try
+            {
+                controller.LoadGameState();
+                errorLabel.Text = "Game loaded!";
+            }
+            catch (Exception er)
+            {
+                errorLabel.Text = ExceptionHandler.HandleException("loadGame");
+            }
         }
-
-        
-
     }
 }
