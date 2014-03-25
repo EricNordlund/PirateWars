@@ -103,5 +103,14 @@ namespace PirateWars
             
         }
 
+        public void AddToHighscore()
+        {
+            dal.AddToHighscore(game.Player);
+        }
+
+        public MySqlDataReader GetData(string query)
+        {
+            return dal.GetData(query);
+        }
     }
 }

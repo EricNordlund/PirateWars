@@ -52,8 +52,13 @@ namespace PirateWars
 
         public void GameOver()
         {
-            Form2 gd = new Form2(this.controller);
+            controller.AddToHighscore();
+            Highscore hs = new Highscore(this.controller);
+            hs.Visible = true;
+            
+            //hs.Show();
 
+            /*
             if (gd.ShowDialog(this) == DialogResult.OK)
             {
                 
@@ -61,6 +66,7 @@ namespace PirateWars
             
 
             gd.Dispose();
+             */
         }
 
         

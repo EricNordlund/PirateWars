@@ -35,7 +35,8 @@ namespace PirateWars
 		/// <summary>
         /// End turn and call game over if turn == 0
         /// </summary>
-        /// <returns>Current turn in string</returns>        public String EndTurn(Form1 view)
+        /// <returns>Current turn in string</returns>        
+        public String EndTurn(Form1 view)
         {
             turn--;
             if (turn == 0)
