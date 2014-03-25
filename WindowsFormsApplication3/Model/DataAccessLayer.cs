@@ -117,6 +117,16 @@ namespace PirateWars
             return (GetData(query));
         }
 
+        public void AddToHighscoreList(Player player)
+        {
+            string deleteQuery = string.Format("DELETE FROM player WHERE playerName = '{0}';", player.PlayerName);
+            SendData(deleteQuery);
+
+            string queryPlayer = string.Format("INSERT INTO highscore VALUES ( '{0}', '{1}' )", player.PlayerName, player.Gold);
+            SendData(queryPlayer);
+
+        }
+
     }
 }
 
